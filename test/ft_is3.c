@@ -8,6 +8,11 @@ void	ft_is_s(int *i, t_en *e)
 	char *str;
 
 	str = va_arg(e->a, char *);
+	if (e->s != 0)
+	{
+		e->r += ft_putchar(' ');
+		*i = *i + 1;
+	} 
 	if (!str)
 		e->r += ft_putstr("(null)");
 	else

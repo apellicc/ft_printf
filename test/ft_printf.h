@@ -34,8 +34,8 @@ typedef struct		s_en
 }					t_en;
 
 void	ft_print_flag(t_en *e);
-char	*ft_convert(long int n, int base, char *str, int i);
-char	*ft_itoa_base(long int n, int base);
+char	*ft_convert(long long int n, int base, char *str, int i);
+char	*ft_itoa_base(long long int n, int base);
 void	ft_is_d(int *i, t_en *e);
 void	ft_is_D(int *i, t_en *e);
 void	ft_is_i(int *i, t_en *e);

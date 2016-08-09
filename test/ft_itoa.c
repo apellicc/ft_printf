@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-char	*ft_convert(long int n, int base, char *str, int i)
+char	*ft_convert(long long int n, int base, char *str, int i)
 {
-	long int	div;
+	long long int	div;
 	char		temp;
 
 	div = 1;
@@ -28,14 +28,14 @@ char	*ft_convert(long int n, int base, char *str, int i)
 	return (str);
 }
 
-char	*ft_itoa_base(long int n, int base)
+char	*ft_itoa_base(long long int n, int base)
 {
 	char	*str;
 	int		i;
 
-	str = (char *)malloc(sizeof(*str) * 12);
+	str = (char *)malloc(sizeof(*str) * 21);
 	i = 0;
-	while (i < 12)
+	while (i < 21)
 	{
 		str[i] = '\0';
 		i++;

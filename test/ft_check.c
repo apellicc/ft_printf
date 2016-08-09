@@ -10,10 +10,11 @@ void	ft_check_flag(char *f, int *i, t_en *e)
 		f[*i] == ' ' ? e->s++ : 0;
 		f[*i] == '0' ? e->z++ : 0;
 		f[*i] == '#' ? e->d++ : 0;
+
 		*i = *i + 1;
 	}
 	e->m != 0 && e->z != 0 ? e->z = 0 : 0;
-	e->p != 0 && e->s != 0 ? e->s = 0 : 0;
+	(e->p != 0) && (e->s != 0) ? e->s = 0 : 0;
 }
 
 void	ft_check_width(char *f, int *i, t_en *e)
