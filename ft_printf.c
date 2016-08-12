@@ -25,8 +25,15 @@ void 	ft_ini(t_en *e)
 	e->s = 0;
 	e->print = 0;
 }
-void	ft_select_print(int *i, t_en *e)
+void	ft_select_conv(int *i, t_en *e)
 {
+	e->c == 'h' ? ft_conv_h(i, e) : 0;
+	e->c == 'l' ? ft_conv_l(i, e) : 0;
+	e->c == 'y' ? ft_conv_y(i, e) : 0;
+	e->c == 'z' ? ft_conv_z(i, e) : 0;
+	e->c == 'H' ? ft_conv_H(i, e) : 0;
+	e->c == 'L' ? ft_conv_L(i, e) : 0;
+
 	e->f == 'd' ? ft_is_d(i, e) : 0;
 	//e->f == 'D' ? ft_is_D(i, e) : 0;
 	//e->f == 'i' ? ft_is_i(i, e) : 0;
@@ -51,6 +58,8 @@ void	ft_check(char *f, int *i, t_en *e)
 	ft_check_precision(f, i, e);
 	ft_check_modify_type(f, i, e);
 	ft_check_specifier(f, i, e);
+	(e->s == 's' || e->s == 'S' || e->s == 'p' || e->s == 'c' || e->s == 'C') ?
+	e->c = 0 : 0;
 	//ft_check_priority(f, i, e);
 	ft_select_print(i, e);
 	ft_ini(e);
