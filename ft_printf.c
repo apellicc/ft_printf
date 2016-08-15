@@ -30,10 +30,10 @@ void	ft_select_print(int *i, t_en *e)
 		//!(ft_strchr("%diDuUoOxXsSp", e->f)) ? ft_invalid(i, e) : 0;
 		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
 	 	e->f == 'D' ? ft_is_D(i, e) : 0;
-	 //	e->f == 'u' ? ft_is_u(i, e) : 0;
-	 //	e->f == 'U' ? ft_is_U(i, e) : 0;
+	 	e->f == 'u' ? ft_is_u(i, e) : 0;
+	 	e->f == 'U' ? ft_is_U(i, e) : 0;
 	 	e->f == 'o' ? ft_is_o(i, e) : 0;
-//	 	e->f == 'O' ? ft_is_O(i, e) : 0;
+	 	e->f == 'O' ? ft_is_O(i, e) : 0;
 	 	e->f == 'p' ? ft_is_p(i, e) : 0;
 	 	e->f == 'x' ? ft_is_x(i, e) : 0;
 	 	e->f == 'X' ? ft_is_X(i, e) : 0;

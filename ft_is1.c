@@ -27,9 +27,9 @@ void	ft_is_d(int *i, t_en *e)
 void	ft_is_D(int *i, t_en *e)
 {
 
-	int		nb;
+	 long long		nb;
 
-	nb = (long int)va_arg(e->a, int);
+	nb = (long long)va_arg(e->a, long long);
 	// e->c == 'H' ? nb = (char)va_arg(e->a, int) : 0;
 	// e->c == 'h' ? nb = (short int)va_arg(e->a, int) : 0;
 	// e->c == 'l' ? nb = (long int)va_arg(e->a, int) : 0;
@@ -37,7 +37,49 @@ void	ft_is_D(int *i, t_en *e)
 	// e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	// e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
 
+	ft_putlongnbr(nb);
+	e->r += ft_intlen(nb);
+	*i = *i + 1;
+	ft_ini(e);
+}
+
+void	ft_is_O(int *i, t_en *e)
+{
+	int nb;
+
+	nb = (unsigned long int)va_arg(e->a, int);
+	e->r += ft_putstr(ft_itoa_base(nb, 8));
+	*i = *i + 1;
+	ft_ini(e);
+}
+
+void	ft_is_u(int *i, t_en *e)
+{
+
+	unsigned int		nb;
+
+	e->c == 0 ? nb = va_arg(e->a, unsigned int) : 0;
+	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
+	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, int) : 0;
+	e->c == 'l' ? nb = (unsigned long int)va_arg(e->a, int) : 0;
+	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, int) : 0;
+	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
+	e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
+
 	ft_putnbr(nb);
+	e->r += ft_intlen(nb);
+	*i = *i + 1;
+	ft_ini(e);
+}
+
+void	ft_is_U(int *i, t_en *e)
+{
+
+	unsigned long long int		nb;
+
+	nb = (unsigned long long)va_arg(e->a, unsigned long long int);
+
+	ft_putlongnbr(nb);
 	e->r += ft_intlen(nb);
 	*i = *i + 1;
 	ft_ini(e);

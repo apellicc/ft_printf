@@ -56,7 +56,7 @@ int					ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 char				*ft_strtrim_c(char const *s, char c);
 char				*ft_intcpy(int n, int t, int i);
-int					ft_intlen(int n);
+int					ft_intlen(long long int n);
 int					ft_searchc(char const *s, char c);
 int					ft_searchrc(char const *s, char c);
 int					ft_searchrwhitespace(char const *s);
@@ -104,5 +104,7 @@ int					ft_tablen(char **str);
 void				ft_tabfree(char **str);
 int					get_next_line(int fd, char **line);
 void				*ft_memnew(size_t size);
+void				ft_putlongnbr(long long int c);
+
 
 #endif

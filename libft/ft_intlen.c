@@ -12,21 +12,23 @@
 
 #include "libft.h"
 
-int		ft_intlen(int n)
+int		ft_intlen(long long int n)
 {
 	int	size;
+	unsigned long long i;
 
 	size = 0;
+	i = n;
 	if (n == -2147483648)
 		return (11);
 	if (n < 0)
 	{
-		n = -n;
+		i = -n;
 		size++;
 	}
-	while (n > 9)
+	while (i > 9)
 	{
-		n = n / 10;
+		i = i / 10;
 		size++;
 	}
 	size++;
