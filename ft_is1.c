@@ -1,9 +1,5 @@
 #include "ft_printf.h"
 
-//e->f == 'D' ? ft_is_D(i, e) : 0;
-//e->f == 'i' ? ft_is_i(i, e) : 0;
-//e->f == 'u' ? ft_is_u(i, e) : 0;
-//e->f == 'U' ? ft_is_U(i, e) : 0;
 
 void	ft_is_d(int *i, t_en *e)
 {
@@ -17,10 +13,14 @@ void	ft_is_d(int *i, t_en *e)
 	e->c == 'L' ? nb = (long long int)va_arg(e->a, int) : 0;
 	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
-
-	ft_putnbr(nb);
-	e->r += ft_intlen(nb);
-	*i = *i + 1;
+	e->print = ft_intlen(nb);
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, e->print) : 0;
+		ft_putlongnbr(nb);
+		e->r += ft_intlen(nb);
+		*i = *i + 1;
+	}
 	ft_ini(e);
 }
 
@@ -36,10 +36,14 @@ void	ft_is_D(int *i, t_en *e)
 	// e->c == 'L' ? nb = (long long int)va_arg(e->a, int) : 0;
 	// e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	// e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
-
-	ft_putlongnbr(nb);
-	e->r += ft_intlen(nb);
-	*i = *i + 1;
+	e->print = ft_intlen(nb);
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, e->print) : 0;
+		ft_putlongnbr(nb);
+		e->r += ft_intlen(nb);
+		*i = *i + 1;
+	}
 	ft_ini(e);
 }
 
@@ -48,8 +52,13 @@ void	ft_is_O(int *i, t_en *e)
 	int nb;
 
 	nb = (unsigned long int)va_arg(e->a, int);
-	e->r += ft_putstr(ft_itoa_base(nb, 8));
-	*i = *i + 1;
+	e->print = ft_strlen(ft_itoa_base(nb, 8));
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, 1) : 0;
+		e->r += ft_putstr(ft_itoa_base(nb, 8));
+		*i = *i + 1;
+	}
 	ft_ini(e);
 }
 
@@ -65,10 +74,21 @@ void	ft_is_u(int *i, t_en *e)
 	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, int) : 0;
 	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
-
-	ft_putnbr(nb);
-	e->r += ft_intlen(nb);
-	*i = *i + 1;
+	e->print = ft_intlen(nb);
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, 1) : 0;
+		ft_putlongnbr(nb);
+		e->r += ft_intlen(nb);
+		*i = *i + 1;
+	}
+	// else
+	// {
+	// 	ft_putnbr(nb);
+	// 	e->w != 0 ? ft_nprint_w(i, e) : 0;
+	// 	e->r += ft_intlen(nb);
+	// 	*i = *i + 1;
+	// }
 	ft_ini(e);
 }
 
@@ -84,29 +104,3 @@ void	ft_is_U(int *i, t_en *e)
 	*i = *i + 1;
 	ft_ini(e);
 }
-//
-// void	ft_is_int(int *i, t_en *e)
-// {
-// 	int		nb;
-//
-// 	nb = va_arg(e->a, int);
-// 	ft_putnbr(nb);
-// 	e->r += ft_intlen(nb);
-// 	*i = *i + 1;
-//
-// }
-//
-// void	ft_is_octal(int *i, t_en *e)
-// {
-//
-// }
-//
-// void	ft_is_hex(int *i, t_en *e)
-// {
-//
-// }
-//
-// void	ft_is_char(int *i, t_en *e)
-// {
-//
-// }

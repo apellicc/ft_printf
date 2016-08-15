@@ -14,9 +14,13 @@ void	ft_is_o(int *i, t_en *e)
 	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, int) : 0;
 	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
-
-	e->r += ft_putstr(ft_itoa_base(nb, 8));
-	*i = *i + 1;
+	e->print = ft_strlen(ft_itoa_base(nb, 8));
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, 1) : 0;
+		e->r += ft_putstr(ft_itoa_base(nb, 8));
+		*i = *i + 1;
+	}
 	ft_ini(e);
 }
 
@@ -49,9 +53,13 @@ void	ft_is_x(int *i, t_en *e)
 	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, int) : 0;
 	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
-
-	e->r += ft_putstr_minimizer(ft_itoa_base(nb, 16));
-	*i = *i + 1;
+	e->print = ft_strlen(ft_itoa_base(nb, 8));
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, 1) : 0;
+		e->r += ft_putstr_minimizer(ft_itoa_base(nb, 16));
+		*i = *i + 1;
+	}
 	ft_ini(e);
 
 
@@ -69,7 +77,12 @@ void	ft_is_X(int *i, t_en *e)
 	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, int) : 0;
 
-	e->r += ft_putstr_capitalizer(ft_itoa_base(nb, 16));
-	*i = *i + 1;
+	e->print = ft_strlen(ft_itoa_base(nb, 8));
+	if (e->m == 0)
+	{
+		e->w != 0 ? ft_print_w(e, 1) : 0;
+		e->r += ft_putstr_capitalizer(ft_itoa_base(nb, 16));
+		*i = *i + 1;
+	}
 	ft_ini(e);
 }
