@@ -47,6 +47,7 @@ void	ft_select_print(int *i, t_en *e)
 
 void	ft_check(char *f, int *i, t_en *e)
 {
+	//ft_putendl("dans check");
 	ft_check_flag(f, i, e);
 	ft_check_width(f, i, e);
 	ft_check_precision(f, i, e);
@@ -65,15 +66,18 @@ void	ft_parse(char *f, t_en *e)
 	i = 0;
 	while (f[i] != '\0')
 	{
+		//ft_putendl("dans boucle ftarse");
 		if (f[i] != '%')
 		{
+			//ft_putendl("dans if parse");
 			ft_putchar(f[i]);
 			++e->r;
 			++i;
 		}
 		else
 		{
-			//i++;
+			//ft_putendl("dans else parse");
+			i++;
 		//	ft_putnbr(i);
 			ft_check(f, &i, e);
 		}
@@ -86,7 +90,7 @@ int		ft_printf(const char *format, ...)
 	t_en	*e;
 	int		ret;
 	char *tmp;
-
+	//ft_putendl("ici");
 //	ft_putstr(format);
 //	ft_putchar('\n');
 

@@ -2,9 +2,11 @@
 
 void	ft_check_flag(char *f, int *i, t_en *e)
 {
+	//ft_putendl("dans check flag");
 	while ((f[*i] == '+' || f[*i] == '-' || f[*i] == ' ' || f[*i] == '0' ||
 			f[*i] == '#') && f[*i] != '\0')
 	{
+		//ft_putendl("dans boucle check flag");
 		f[*i] == '+' ? e->p++ : 0;
 		f[*i] == '-' ? e->m++ : 0;
 		f[*i] == ' ' ? e->s++ : 0;
@@ -15,18 +17,32 @@ void	ft_check_flag(char *f, int *i, t_en *e)
 	}
 	e->m != 0 && e->z != 0 ? e->z = 0 : 0;
 	(e->p != 0) && (e->s != 0) ? e->s = 0 : 0;
+
 }
 
 void	ft_check_width(char *f, int *i, t_en *e)
 {
-	f[*i] > -1 && f[*i] < 10 ? e->w = ft_atoi(&f[*i]) : 0;
+	//ft_putendl("dans check width");
+	//ft_putendl(&f[*i]);
+	ft_isdigit(f[*i]) == 1 ? e->w = ft_atoi(&f[*i]) : 0;
 	e->w != 0 ? *i += ft_intlen(e->w) : 0;
+	//ft_nbrendl(e->w);
+	//ft_putendl("dans fin check width");
+
 }
 
 void	ft_check_precision(char *f, int *i, t_en *e)
 {
-	f[*i] == '.' && f[++*i] > -1 && f[*i] < 10 ? e->pr = ft_atoi(&f[*i]) : 0;
-	*i += ft_intlen(e->pr);
+	//ft_putendl("dans check precision");
+	//ft_putendl(&f[*i]);
+	//ft_nbrendl(*i);
+
+	f[*i] == '.' && (ft_isdigit(f[*i + 1]) == 1) ? e->pr = ft_atoi(&f[*i]) : 0;
+	e->pr != 0 ? *i += ft_intlen(e->pr) : 0;
+	//ft_nbrendl(*i);
+	//ft_putendl(&f[*i]);
+	//ft_putendl("dans fin check pr");
+
 }
 
 void	ft_check_modify_type(char *f, int *i, t_en *e)
