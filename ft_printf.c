@@ -25,30 +25,24 @@ void 	ft_ini(t_en *e)
 	e->s = 0;
 	e->print = 0;
 }
-void	ft_select_conv(int *i, t_en *e)
+void	ft_select_print(int *i, t_en *e)
 {
-	e->c == 'h' ? ft_conv_h(i, e) : 0;
-	e->c == 'l' ? ft_conv_l(i, e) : 0;
-	e->c == 'y' ? ft_conv_y(i, e) : 0;
-	e->c == 'z' ? ft_conv_z(i, e) : 0;
-	e->c == 'H' ? ft_conv_H(i, e) : 0;
-	e->c == 'L' ? ft_conv_L(i, e) : 0;
+		//!(ft_strchr("%diDuUoOxXsSp", e->f)) ? ft_invalid(i, e) : 0;
+		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
+	 //	e->f == 'D' ? ft_is_D(i, e) : 0;
+	 //	e->f == 'u' ? ft_is_u(i, e) : 0;
+	 //	e->f == 'U' ? ft_is_U(i, e) : 0;
+	 	e->f == 'o' ? ft_is_o(i, e) : 0;
+//	 	e->f == 'O' ? ft_is_O(i, e) : 0;
+	 	e->f == 'p' ? ft_is_p(i, e) : 0;
+	 	e->f == 'x' ? ft_is_x(i, e) : 0;
+	 	e->f == 'X' ? ft_is_X(i, e) : 0;
+	 	e->f == 's' ? ft_is_s(i, e) : 0;
+	 //	e->f == 'S' ? ft_is_S(i, e) : 0;
+	 	e->f == 'c' ? ft_is_c(i, e) : 0;
+	 //	e->f == 'C' ? ft_is_C(i, e) : 0;
+	 	e->f == '%' ? ft_is_percent(i, e) : 0;
 
-	e->f == 'd' ? ft_is_d(i, e) : 0;
-	//e->f == 'D' ? ft_is_D(i, e) : 0;
-	//e->f == 'i' ? ft_is_i(i, e) : 0;
-	//e->f == 'u' ? ft_is_u(i, e) : 0;
-	//e->f == 'U' ? ft_is_U(i, e) : 0;
-	e->f == 'o' ? ft_is_o(i, e) : 0;
-	//e->f == 'O' ? ft_is_O(i, e) : 0;
-	e->f == 'p' ? ft_is_p(i, e) : 0;
-	e->f == 'x' ? ft_is_x(i, e) : 0;
-	e->f == 'X' ? ft_is_X(i, e) : 0;
-	e->f == 's' ? ft_is_s(i, e) : 0;
-//	e->f == 'S' ? ft_is_S(i, e) : 0;
-	e->f == 'c' ? ft_is_c(i, e) : 0;
-//	e->f == 'C' ? ft_is_C(i, e) : 0;
-	e->f == '%' ? ft_is_percent(i, e) : 0;
 }
 
 void	ft_check(char *f, int *i, t_en *e)
@@ -62,7 +56,6 @@ void	ft_check(char *f, int *i, t_en *e)
 	e->c = 0 : 0;
 	//ft_check_priority(f, i, e);
 	ft_select_print(i, e);
-	ft_ini(e);
 }
 
 void	ft_parse(char *f, t_en *e)
