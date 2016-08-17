@@ -18,6 +18,7 @@ void	ft_is_o(int *i, t_en *e)
 	if (e->m == 0)
 	{
 		e->w != 0 ? ft_print_w(e, 1) : 0;
+		e->w == 0 && e->d != 0 ? e->r += write(1, "0", 1) : 0;
 		e->r += ft_putstr(ft_itoa_base(nb, 8));
 		*i = *i + 1;
 	}

@@ -15,12 +15,13 @@ void	ft_print_w(t_en *e, long long int n)
 		--e->w;
 		e->r = e->r + 1;
 	}
-	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && ft_strchr("oO", e->f)))
+	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && (ft_strchr("oO", e->f))))
 	{
+		//ft_putendl("nqiqiq");
 		e->p > 0 && n > -1 ? write(1, "+", 1) : 0;
 		e->p > 0 && n < 0 ? write(1, "-", 1) : 0;
 		e->s > 0 ? write(1, " ", 1) : 0;
-		(e->d > 0 && e->f == 'o') || e->f == 'O' ? write(1, "0", 1) : 0;
+		e->d > 0 && (e->f == 'o' || e->f == 'O') ? write(1, "0", 1) : 0;
 		e->r = e->r + 1;
 	}
 	 if (e->d > 0 && ft_strchr("xX", e->f))

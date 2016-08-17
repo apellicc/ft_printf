@@ -9,18 +9,35 @@ void	ft_is_s(int *i, t_en *e)
 
 	if (e->c == 0)
 	{
+		//ft_putendl("je suis ici");
 		str = va_arg(e->a, char *);
-		if (e->s != 0)
+		//e->print = ft_strlen(str);
+		if (e->m == 0)
 		{
-			e->r += ft_putchar(' ');
+			if (e->s != 0)
+			{
+				e->print++;
+				e->r += ft_putchar(' ');
+				*i = *i + 1;
+			}
+			if (!str)
+			{
+		//		ft_putendl("je suis ici");
+				e->print += 6;
+				e->w != 0 ? ft_print_w(e, 1) : 0;
+
+				e->r += ft_putstr("(null)");
+			}
+			else
+			{
+				e->print += ft_strlen(str);
+				e->w != 0 ? ft_print_w(e, 1) : 0;
+				e->r += ft_putstr(str);
+
+			}
 			*i = *i + 1;
+			ft_ini(e);
 		}
-		if (!str)
-			e->r += ft_putstr("(null)");
-		else
-			e->r += ft_putstr(str);
-		*i = *i + 1;
-		ft_ini(e);
 	}
 	//e->c == 'l' ? ft_is_S(i, e) : 0;
 }
@@ -32,8 +49,13 @@ void	ft_is_c(int *i, t_en *e)
 	if (e->c == 0)
 	{
 		c = va_arg(e->a, int);
-		e->r += ft_putchar(c);
-		*i = *i + 1;
+		e->print = 1;
+		if (e->m == 0)
+		{
+			e->w != 0 ? ft_print_w(e, 1) : 0;
+			e->r += ft_putchar(c);
+			*i = *i + 1;
+		}
 		ft_ini(e);
 	}
 //	e->c == 'l' ? ft_is_C(i, e) : 0;

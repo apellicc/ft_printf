@@ -49,9 +49,9 @@ void	ft_is_D(int *i, t_en *e)
 
 void	ft_is_O(int *i, t_en *e)
 {
-	int nb;
+	long long int nb;
 
-	nb = (unsigned long int)va_arg(e->a, int);
+	nb = (unsigned long long int)va_arg(e->a, long long int);
 	e->print = ft_strlen(ft_itoa_base(nb, 8));
 	if (e->m == 0)
 	{
@@ -97,8 +97,8 @@ void	ft_is_U(int *i, t_en *e)
 
 	unsigned long long int		nb;
 
-	nb = (unsigned long long)va_arg(e->a, unsigned long long int);
-
+	nb = (unsigned long long int)va_arg(e->a, unsigned long long int);
+	
 	ft_putlongnbr(nb);
 	e->r += ft_intlen(nb);
 	*i = *i + 1;

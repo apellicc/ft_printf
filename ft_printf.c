@@ -42,6 +42,7 @@ void	ft_select_print(int *i, t_en *e)
 	 	e->f == 'c' ? ft_is_c(i, e) : 0;
 	 //	e->f == 'C' ? ft_is_C(i, e) : 0;
 	 	e->f == '%' ? ft_is_percent(i, e) : 0;
+	//	!ft_strchr("diDuUoOxXsSp", e->f) ? ft_is_invalid(i, e)
 
 }
 
@@ -49,11 +50,16 @@ void	ft_check(char *f, int *i, t_en *e)
 {
 	//ft_putendl("dans check");
 	ft_check_flag(f, i, e);
+	//ft_putendl("apres check flag");
 	ft_check_width(f, i, e);
+	//ft_putendl("apres check width");
 	ft_check_precision(f, i, e);
+	//ft_putendl("apres check precision");
 	ft_check_modify_type(f, i, e);
+//	ft_putendl("apres check modify");
 	ft_check_specifier(f, i, e);
-	(e->s == 's' || e->s == 'S' || e->s == 'p' || e->s == 'c' || e->s == 'C') ?
+	//ft_putendl("apres check specifier");
+	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	e->c = 0 : 0;
 	//ft_check_priority(f, i, e);
 	ft_select_print(i, e);
@@ -66,10 +72,11 @@ void	ft_parse(char *f, t_en *e)
 	i = 0;
 	while (f[i] != '\0')
 	{
+		//ft_putendl("dans while parse");
 		//ft_putendl("dans boucle ftarse");
 		if (f[i] != '%')
 		{
-			//ft_putendl("dans if parse");
+		//	ft_putendl("dans if parse");
 			ft_putchar(f[i]);
 			++e->r;
 			++i;

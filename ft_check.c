@@ -59,5 +59,8 @@ void	ft_check_modify_type(char *f, int *i, t_en *e)
 
 void	ft_check_specifier(char *f, int *i, t_en *e)
 {
-	e->f = *ft_strchr("sSpdDioOuUxXcC%", f[*i]);
+//	ft_putendl("dans check specifier");
+	if ((ft_strchr("sSpdDioOuUxXcC%", f[*i])))
+		e->f = *ft_strchr("sSpdDioOuUxXcC%", f[*i]);
+//	ft_putendl("apres dans check specifier");
 }

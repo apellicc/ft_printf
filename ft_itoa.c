@@ -41,8 +41,10 @@ char	*ft_itoa_base(long long int n, int base)
 		i++;
 	}
 	i = 0;
-	if (base != 10)
+	if (base == 16)
 		return (ft_convert((unsigned int)n, base, str, i));
+	else if (base == 8)
+		return (ft_convert((unsigned long long int)n, base, str, i));
 	else
 		return (ft_convert(n, base, str, i));
 }
