@@ -27,7 +27,8 @@ ft_memcmp.c ft_strsplit.c ft_strtrim_c.c ft_intlen.c ft_searchc.c\
 ft_searchrc.c ft_searchrwhitespace.c ft_searchwhitespace.c ft_intcpy.c\
 ft_lenword.c ft_nbword.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c\
 ft_lstiter.c ft_lstmap.c ft_sqrt.c ft_puttab.c ft_tablen.c ft_tabfree.c\
-get_next_line.c ft_memnew.c ft_nbrendl.c ft_putlongnbr.c
+get_next_line.c ft_memnew.c ft_nbrendl.c ft_putlongnbr.c\
+ft_putunsignedlongnbr.c ft_uintlen.c
 OBJ = $(SRC:.c=.o)
 
 FLAG = -Wall -Werror -Wextra

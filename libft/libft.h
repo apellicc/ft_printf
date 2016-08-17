@@ -105,6 +105,8 @@ void				ft_tabfree(char **str);
 int					get_next_line(int fd, char **line);
 void				*ft_memnew(size_t size);
 void				ft_putlongnbr(long long int c);
+void				ft_putunsignedlongnbr(unsigned long long c);
+int					ft_uintlen(unsigned long long int n);
 
 
 #endif
