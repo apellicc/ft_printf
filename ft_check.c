@@ -84,5 +84,7 @@ void	ft_check_specifier(char *f, int *i, t_en *e)
 		e->f = *ft_strchr("sSpdDioOuUxXcC%", f[*i]);
 	else if (f[*i] != 0)
 		e->f = 'v';
+	// ft_putendl("suce ma bite");
+	// ft_putchar(e->f);
 //	ft_putendl("apres dans check specifier");
 }

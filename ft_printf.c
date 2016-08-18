@@ -59,11 +59,12 @@ void	ft_check(char *f, int *i, t_en *e)
 	//ft_putendl("apres check precision");
 	(ft_strchr("hljz", f[*i])) ? ft_check_modify_type(f, i, e) : 0;
 //	ft_putendl("apres check modify");
+	// ft_putchar(f[*i]);
 	ft_check_specifier(f, i, e);
 	//ft_putendl("apres check specifier");
 	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	e->c = 0 : 0;
-	e->z == 0 && e->s == 0 ? e->z = 0 : 0;
+	((e->f == 'o' || e->f == 'O') && e->d > 0 && e->pr < 0) ? e->pr = 0 : 0;
 	e->pr < 0 ? *i += 1 : 0;
 	//ft_check_priority(f, i, e);
 	e->pr >= 0 ? ft_select_print(f, i, e) : 0;

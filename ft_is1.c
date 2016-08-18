@@ -123,7 +123,7 @@ void	ft_is_O(int *i, t_en *e)
 	e->print = ft_strlen(ft_itoa_base(nb, 8));
 	if (e->m == 0)
 	{
-		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0 ? ft_print_w(e, 1) : 0;
+		(e->w != 0 || e->d != 0 || e->pr > e->print || e->d != 0) && nb != 0 ? ft_print_w(e, 1) : 0;
 		e->r += ft_putstr(ft_itoa_base(nb, 8));
 		*i = *i + 1;
 	}

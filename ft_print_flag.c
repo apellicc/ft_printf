@@ -8,7 +8,7 @@ void	ft_print_w(t_en *e, long long int n)
 	e->s != 0 && e->z != 0 ? e->print += 1 : 0;
 	e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
 
-	if (e->p > 0 || e->s > 0 || (e->d > 0 && (ft_strchr("oO", e->f))))
+	if ((e->d > 0 && (ft_strchr("oO", e->f))) || e->p > 0 || e->s > 0 )
 	{
 		//ft_putendl("nqiqiq");
 		e->p > 0 && n > -1 ? write(1, "+", 1) : 0;
