@@ -6,16 +6,20 @@
 void	ft_is_s(int *i, t_en *e)
 {
 	char *str;
+	int tmp;
 
+	//ft_putendl("dans s");
 	if (e->c == 0)
 	{
-		//ft_putendl("je suis ici");
+		// ft_putendl("je suis ici");
 		str = va_arg(e->a, char *);
 		//e->print = ft_strlen(str);
-		e->s = 0;
+		//e->s = 0;
+		//e->print = ft_strlen(str);
+		//e->r += e->print;
 		if (e->m == 0)
 		{
-			//!str || str[0] == '\0' ? e->s = 0 : 0;
+			!str || str[0] == '\0' || (ft_strcmp(str, "(null)") == 0) ? e->s = 0 : 0;
 			if (e->s != 0)
 			{
 				e->print++;
@@ -24,17 +28,24 @@ void	ft_is_s(int *i, t_en *e)
 			}
 			if (!str)
 			{
+				e->s = 0;
 				//		ft_putendl("je suis ici");
 				e->print += 6;
-				e->w != 0 ? ft_print_w(e, 1) : 0;
+				e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 
 				e->r += ft_putstr("(null)");
 			}
 			else
 			{
-				e->print += ft_strlen(str);
-				e->w != 0 ? ft_print_w(e, 1) : 0;
-				e->r += ft_putstr(str);
+				tmp = ft_strlen(str);
+				e->print += tmp;
+				//e->r += e->print;
+				e->w != 0 || (e->pr > e->print)? ft_print_w(e, 1) : 0;
+				// ft_nbrendl(e->w);
+				// ft_nbrendl(e->pr);
+				// ft_nbrendl(e->print);
+				e->pr < tmp && e->pr != 0 ? e->r += write(1, str, e->pr) : 0;
+				e->pr >= tmp || e->pr == 0? e->r += ft_putstr(str) : 0;
 
 			}
 			*i = *i + 1;
@@ -54,7 +65,7 @@ void	ft_is_c(int *i, t_en *e)
 		e->print = 1;
 		if (e->m == 0)
 		{
-			e->w != 0 ? ft_print_w(e, 1) : 0;
+			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 			e->r += ft_putchar(c);
 			*i = *i + 1;
 		}

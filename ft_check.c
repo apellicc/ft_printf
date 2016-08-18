@@ -80,6 +80,7 @@ void	ft_check_modify_type(char *f, int *i, t_en *e)
 void	ft_check_specifier(char *f, int *i, t_en *e)
 {
 //	ft_putendl("dans check specifier");
+	//ft_putchar(f[*i]);
 	if ((ft_strchr("sSpdDioOuUxXcC%", f[*i])))
 		e->f = *ft_strchr("sSpdDioOuUxXcC%", f[*i]);
 	else if (f[*i] != 0)

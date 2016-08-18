@@ -3,6 +3,12 @@ void	ft_print_w(t_en *e, long long int n)
 {
 	//ft_putendl("nqiqiq");
 	int tmp;
+
+
+	if ((e->w > e->pr) && (e->pr < e->print) && (e->f == 's') && (e->pr != 0))
+		e->print = e->pr;
+	else if ((e->pr > e->print) && (e->f == 's'))
+			e->pr = e->print;
 	tmp = e->pr;
 	// (n < 0 && e->w > e->pr && e->w > e->print && e->pr > e->print)? e->print++ : 0;
 	e->s != 0 && e->z != 0 ? e->print += 1 : 0;
@@ -32,7 +38,17 @@ void	ft_print_w(t_en *e, long long int n)
 	}
 	if (e->w > e->pr)
 	{
-		n < 0 && e->pr > e->print ? e->w-- : 0;
+		n < 0 && (e->pr > e->print) ? e->w-- : 0;
+		//
+		// ft_nbrendl(e->w);
+		//
+		// ft_nbrendl(e->print);
+		//
+		// ft_putendl("dans ft_print_w");
+		// ft_nbrendl(e->w);
+		// ft_nbrendl(e->pr);
+		// else if (e->w < e->pr && e->pr > e->print && e->f == 's')
+		// 	 	e->pr = 0
 		while ((e->w > e->pr) && (e->w > e->print))
 		{
 			// ft_nbrendl(e->z);
@@ -45,7 +61,7 @@ void	ft_print_w(t_en *e, long long int n)
 			e->r = e->r + 1;
 		}
 	}
-	if (e->pr > e->print)
+	if (e->pr > e->print && (ft_strchr("diDuUoOxXp", e->f)))
 	{
 		if (n < 0)
 		{

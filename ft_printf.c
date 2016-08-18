@@ -67,6 +67,7 @@ void	ft_check(char *f, int *i, t_en *e)
 	((e->f == 'o' || e->f == 'O') && e->d > 0 && e->pr < 0) ? e->pr = 0 : 0;
 	e->pr < 0 ? *i += 1 : 0;
 	//ft_check_priority(f, i, e);
+	//ft_nbrendl(e->z);
 	e->pr >= 0 ? ft_select_print(f, i, e) : 0;
 	ft_ini(e);
 }
