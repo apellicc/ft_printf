@@ -57,7 +57,7 @@ void	ft_check(char *f, int *i, t_en *e)
 	//ft_putendl("apres check width");
 	f[*i] == '.' ? ft_check_precision(f, i, e) : 0;
 	//ft_putendl("apres check precision");
-	ft_check_modify_type(f, i, e);
+	(ft_strchr("hljz", f[*i])) ? ft_check_modify_type(f, i, e) : 0;
 //	ft_putendl("apres check modify");
 	ft_check_specifier(f, i, e);
 	//ft_putendl("apres check specifier");

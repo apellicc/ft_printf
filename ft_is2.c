@@ -17,7 +17,7 @@ void	ft_is_o(int *i, t_en *e)
 	e->print = ft_strlen(ft_uitoa_base(nb, 8));
 	if (e->m == 0)
 	{
-		(e->w != 0 || e->d != 0 ) && nb != 0 ? ft_print_w(e, 1) : 0;
+		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0 ? ft_print_w(e, 1) : 0;
 		//e->w == 0 && e->d != 0  && nb != 0 ? e->r += write(1, "0", 1) : 0;
 		e->r += ft_putstr(ft_uitoa_base(nb, 8));
 		*i = *i + 1;
@@ -35,7 +35,7 @@ void	ft_is_p(int *i, t_en *e)
 	e->print = ft_strlen(tmp) + 2;
 	if (e->m == 0)
 	{
-		e->w != 0 ? ft_print_w(e, 1) : 0;
+		e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 		e->r += ft_putstr("0x");
 		e->r += ft_putstr(tmp);
 		*i = *i + 1;
@@ -69,7 +69,7 @@ void	ft_is_x(int *i, t_en *e)
 	e->print = ft_strlen(tmp);
 	if (e->m == 0)
 	{
-		(e->w != 0 || e->d != 0) && nb != 0 ? ft_print_w(e, 1) : 0;
+		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0 ? ft_print_w(e, 1) : 0;
 		e->r += ft_putstr_minimizer(tmp);
 		*i = *i + 1;
 	}
@@ -97,7 +97,7 @@ void	ft_is_X(int *i, t_en *e)
 	e->print = ft_strlen(tmp);
 	if (e->m == 0)
 	{
-		(e->w != 0 || e->d != 0) && nb != 0? ft_print_w(e, 1) : 0;
+		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0? ft_print_w(e, 1) : 0;
 		e->r += ft_putstr_capitalizer(tmp);
 		*i = *i + 1;
 	}

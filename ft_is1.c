@@ -52,6 +52,38 @@ void	ft_is_d(int *i, t_en *e)
 	ft_ini(e);
 }
 
+
+void	ft_is_u(int *i, t_en *e)
+{
+
+	unsigned long long int		nb;
+
+	e->c == 0 ? nb = va_arg(e->a, unsigned int) : 0;
+	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
+	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, unsigned int) : 0;
+	e->c == 'l' ? nb = (unsigned long int)va_arg(e->a, unsigned long long  int) : 0;
+	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
+	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
+	e->print = ft_uintlen(nb);
+	if (e->m == 0)
+	{
+		e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
+		ft_putunsignedlongnbr(nb);
+		e->r += ft_uintlen(nb);
+		*i = *i + 1;
+	}
+	else
+	{
+		//printf("%ld valeur ")
+		ft_putunsignedlongnbr(nb);
+		e->r += e->print;
+		e->w > e->print ? ft_nprint_w(e, e->print) : 0;
+		*i = *i + 1;
+	}
+	ft_ini(e);
+}
+
 void	ft_is_D(int *i, t_en *e)
 {
 
@@ -91,39 +123,8 @@ void	ft_is_O(int *i, t_en *e)
 	e->print = ft_strlen(ft_itoa_base(nb, 8));
 	if (e->m == 0)
 	{
-		(e->w != 0 || e->d != 0) && nb != 0 ? ft_print_w(e, 1) : 0;
+		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0 ? ft_print_w(e, 1) : 0;
 		e->r += ft_putstr(ft_itoa_base(nb, 8));
-		*i = *i + 1;
-	}
-	ft_ini(e);
-}
-
-void	ft_is_u(int *i, t_en *e)
-{
-
-	unsigned long long int		nb;
-
-	e->c == 0 ? nb = va_arg(e->a, unsigned int) : 0;
-	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
-	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, unsigned int) : 0;
-	e->c == 'l' ? nb = (unsigned long int)va_arg(e->a, unsigned long long  int) : 0;
-	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
-	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
-	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
-	e->print = ft_uintlen(nb);
-	if (e->m == 0)
-	{
-		e->w != 0 ? ft_print_w(e, 1) : 0;
-		ft_putunsignedlongnbr(nb);
-		e->r += ft_uintlen(nb);
-		*i = *i + 1;
-	}
-	else
-	{
-		//printf("%ld valeur ")
-		ft_putunsignedlongnbr(nb);
-		e->r += e->print;
-		e->w > e->print ? ft_nprint_w(e, e->print) : 0;
 		*i = *i + 1;
 	}
 	ft_ini(e);
