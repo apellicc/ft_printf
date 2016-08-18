@@ -37,8 +37,11 @@ void	ft_print_w(t_en *e, long long int n)
 	}
 	else if (e->pr > e->print)
 	{
-		write(1, "0", 1);
-		e->pr--;
+		while(e->pr > e->print)
+		{
+			e->r += write(1, "0", 1);
+			e->pr--;
+		}
 	}
 }
 void	ft_nprint_w(t_en *e, long long int n)
