@@ -6,6 +6,8 @@ void	ft_print_w(t_en *e, long long int n)
 	tmp = e->pr;
 	// (n < 0 && e->w > e->pr && e->w > e->print && e->pr > e->print)? e->print++ : 0;
 	e->s != 0 && e->z != 0 ? e->print += 1 : 0;
+	e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
+
 	if (e->p > 0 || e->s > 0 || (e->d > 0 && (ft_strchr("oO", e->f))))
 	{
 		//ft_putendl("nqiqiq");
@@ -33,8 +35,12 @@ void	ft_print_w(t_en *e, long long int n)
 		n < 0 && e->pr > e->print ? e->w-- : 0;
 		while ((e->w > e->pr) && (e->w > e->print))
 		{
-			e->z > 0 ? write(1, "0", 1) : 0;
-			e->z == 0 ? write(1, " ", 1) : 0;
+			// ft_nbrendl(e->z);
+			if (e->z > 0)
+				write(1, "0", 1);
+			// e->z == 0 ? write(1, " ", 1) : 0;
+			else
+				write(1, " ", 1);
 			--e->w;
 			e->r = e->r + 1;
 		}
