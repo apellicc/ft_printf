@@ -11,7 +11,7 @@ void	ft_is_d(int *i, t_en *e)
 	e->c == 'h' ? nb = (short int)va_arg(e->a, int) : 0;
 	e->c == 'l' ? nb = (long long int)va_arg(e->a, long long int) : 0;
 	e->c == 'L' ? nb = (long long int)va_arg(e->a, long long int) : 0;
-	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
+	e->c == 'j' ? nb = (intmax_t)va_arg(e->a, intmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	e->print = ft_intlen(nb);
 	if (e->m == 0)
@@ -73,7 +73,7 @@ void	ft_is_u(int *i, t_en *e)
 	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, unsigned int) : 0;
 	e->c == 'l' ? nb = (unsigned long int)va_arg(e->a, unsigned long long  int) : 0;
 	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
-	e->c == 'j' ? nb = (int)va_arg(e->a, int) : 0;
+	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	e->print = ft_uintlen(nb);
 	if (e->m == 0)

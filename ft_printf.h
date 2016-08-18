@@ -66,5 +66,5 @@ int		ft_printf(const char *format, ...);
 int		ft_putstr_capitalizer(char *str);
 int		ft_putstr_minimizer(char *str);
 void	ft_print_w(t_en *e, long long int n);
-
+void	ft_nprint_w(t_en *e, long long int n);
 #endif
