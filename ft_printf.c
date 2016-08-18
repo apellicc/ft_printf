@@ -51,11 +51,11 @@ void	ft_select_print(char *f, int *i, t_en *e)
 void	ft_check(char *f, int *i, t_en *e)
 {
 	//ft_putendl("dans check");
-	ft_check_flag(f, i, e);
+	(ft_strchr(" +-0#",f[*i])) ? ft_check_flag(f, i, e) : 0;
 	//ft_putendl("apres check flag");
-	ft_check_width(f, i, e);
+	ft_isdigit(f[*i]) == 1 ? ft_check_width(f, i, e) : 0;
 	//ft_putendl("apres check width");
-	ft_check_precision(f, i, e);
+	f[*i] == '.' ? ft_check_precision(f, i, e) : 0;
 	//ft_putendl("apres check precision");
 	ft_check_modify_type(f, i, e);
 //	ft_putendl("apres check modify");
@@ -64,8 +64,10 @@ void	ft_check(char *f, int *i, t_en *e)
 	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	e->c = 0 : 0;
 	e->z == 0 && e->s == 0 ? e->z = 0 : 0;
+	e->pr < 0 ? *i += 1 : 0;
 	//ft_check_priority(f, i, e);
-	ft_select_print(f, i, e);
+	e->pr >= 0 ? ft_select_print(f, i, e) : 0;
+	ft_ini(e);
 }
 
 void	ft_parse(char *f, t_en *e)

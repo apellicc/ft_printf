@@ -36,13 +36,29 @@ void	ft_check_precision(char *f, int *i, t_en *e)
 	//ft_putendl("dans check precision");
 	//ft_putendl(&f[*i]);
 	//ft_nbrendl(*i);
+	//ft_putendl("valeur f i");
+	//ft_putchar(f[*i]);
 
-	if (f[*i] == '.' && (ft_isdigit(f[*i + 1]) == 1))
+	if (f[*i] == '.' && f[*i + 1] != '0' && (ft_isdigit(f[*i + 1]) == 1))
 	{
+	//	ft_putendl("ici");
 		*i += 1;
 		e->pr = ft_atoi(&f[*i]);
 	}
-	e->pr != 0 ? *i += ft_intlen(e->pr) : 0;
+	else if (f[*i] == '.' && (f[*i + 1] == '0'))
+	{
+	//	ft_putendl("dans -2");
+		e->pr = -2;
+	}
+	else if (f[*i] == '.')
+	{
+		//ft_putendl("dans -1");
+		e->pr = -1;
+	}
+	//ft_nbrendl(e->pr);
+	e->pr >= 0 ? *i += ft_intlen(e->pr) : 0;
+	e->pr == -1 ? *i += 1 : 0;
+	e->pr == -2 ? *i += 2 : 0;
 	//ft_nbrendl(*i);
 	//ft_putendl(&f[*i]);
 	//ft_putendl("dans fin check pr");
