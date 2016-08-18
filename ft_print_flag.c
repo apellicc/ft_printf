@@ -2,6 +2,9 @@
 void	ft_print_w(t_en *e, long long int n)
 {
 	//ft_putendl("nqiqiq");
+	int tmp;
+	tmp = e->pr;
+	// (n < 0 && e->w > e->pr && e->w > e->print && e->pr > e->print)? e->print++ : 0;
 	e->s != 0 && e->z != 0 ? e->print += 1 : 0;
 	if (e->p > 0 || e->s > 0 || (e->d > 0 && (ft_strchr("oO", e->f))))
 	{
@@ -27,7 +30,8 @@ void	ft_print_w(t_en *e, long long int n)
 	}
 	if (e->w > e->pr)
 	{
-		while (e->w > e->print)
+		n < 0 && e->pr > e->print ? e->w-- : 0;
+		while ((e->w > e->pr) && (e->w > e->print))
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
 			e->z == 0 ? write(1, " ", 1) : 0;
@@ -35,12 +39,19 @@ void	ft_print_w(t_en *e, long long int n)
 			e->r = e->r + 1;
 		}
 	}
-	else if (e->pr > e->print)
+	if (e->pr > e->print)
 	{
-		while(e->pr > e->print)
+		if (n < 0)
+		{
+			e->r += ft_putchar('-');
+			tmp++;
+		}
+		// e->print--;
+	//	ft_putendl("ici");
+		while(tmp > e->print)
 		{
 			e->r += write(1, "0", 1);
-			e->pr--;
+			tmp--;
 		}
 	}
 }

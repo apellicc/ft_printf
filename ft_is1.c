@@ -20,15 +20,17 @@ void	ft_is_d(int *i, t_en *e)
 	if (e->m == 0)
 	{
 		//printf("%ld valeur ")
-		if (nb < 0 && e->z != 0)
+		if ((nb < 0 && e->z != 0) )
 		{
+			(nb < 0 && e->z != 0) ? e->r -= 1 : 0;
 			e->r += ft_putchar('-');
+		//	ft_putendl("ici 2");
 			nb =  nb * -1;
-			e->r -= 1;
 		}
-
-		ft_print_w(e, e->print);
-		e->z != 0 ? ft_putunsignedlongnbr(nb) : ft_putlongnbr(nb);
+		ft_print_w(e, nb);
+		e->pr > e->print && nb < 0 ? e->r-- : 0;
+		e->pr > e->print && nb < 0 ? nb *= -1 : 0;
+		(e->z != 0 ) ? ft_putunsignedlongnbr(nb) : ft_putlongnbr(nb);
 	//	e->r += w;
 		*i = *i + 1;
 	}
