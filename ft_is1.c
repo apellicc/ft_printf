@@ -82,12 +82,12 @@ void	ft_is_D(int *i, t_en *e)
 void	ft_is_O(int *i, t_en *e)
 {
 	unsigned long long int nb;
-
+	//ft_putendl("nique ta mere");
 	nb = (unsigned long long int)va_arg(e->a, unsigned long long int);
 	e->print = ft_strlen(ft_itoa_base(nb, 8));
 	if (e->m == 0)
 	{
-		e->w != 0 ? ft_print_w(e, 1) : 0;
+		(e->w != 0 || e->d != 0) && nb != 0 ? ft_print_w(e, 1) : 0;
 		e->r += ft_putstr(ft_itoa_base(nb, 8));
 		*i = *i + 1;
 	}

@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 void	ft_print_w(t_en *e, long long int n)
 {
+	//ft_putendl("nqiqiq");
 	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && ft_strchr("oOxXp", e->f)))
 	{
 		if(e->f == 'x' || e->f == 'X')
@@ -24,7 +25,7 @@ void	ft_print_w(t_en *e, long long int n)
 		e->d > 0 && (e->f == 'o' || e->f == 'O') ? write(1, "0", 1) : 0;
 		e->r = e->r + 1;
 	}
-	 if (e->d > 0 && ft_strchr("xX", e->f))
+	 if (e->d > 0 && (ft_strchr("xX", e->f)))
 	 {
 		 e->d > 0 && e->f == 'x' ? write(1, "0x", 2) : 0;
 		 e->d > 0 && e->f == 'X' ? write(1, "0X", 2) : 0;
