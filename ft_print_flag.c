@@ -25,14 +25,21 @@ void	ft_print_w(t_en *e, long long int n)
 		else
 			e->print = e->print + 1;
 	}
-	while (e->w > e->print)
+	if (e->w > e->pr)
 	{
-		e->z > 0 ? write(1, "0", 1) : 0;
-		e->z == 0 ? write(1, " ", 1) : 0;
-		--e->w;
-		e->r = e->r + 1;
+		while (e->w > e->print)
+		{
+			e->z > 0 ? write(1, "0", 1) : 0;
+			e->z == 0 ? write(1, " ", 1) : 0;
+			--e->w;
+			e->r = e->r + 1;
+		}
 	}
-
+	else if (e->pr > e->print)
+	{
+		write(1, "0", 1);
+		e->pr--;
+	}
 }
 void	ft_nprint_w(t_en *e, long long int n)
 {

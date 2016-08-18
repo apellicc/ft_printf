@@ -37,7 +37,11 @@ void	ft_check_precision(char *f, int *i, t_en *e)
 	//ft_putendl(&f[*i]);
 	//ft_nbrendl(*i);
 
-	f[*i] == '.' && (ft_isdigit(f[*i + 1]) == 1) ? e->pr = ft_atoi(&f[*i]) : 0;
+	if (f[*i] == '.' && (ft_isdigit(f[*i + 1]) == 1))
+	{
+		*i += 1;
+		e->pr = ft_atoi(&f[*i]);
+	}
 	e->pr != 0 ? *i += ft_intlen(e->pr) : 0;
 	//ft_nbrendl(*i);
 	//ft_putendl(&f[*i]);
