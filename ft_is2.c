@@ -44,7 +44,7 @@ void	ft_is_p(int *i, t_en *e)
 	{
 		e->r += ft_putstr("0x");
 		e->r += ft_putstr(tmp);
-		e->w != 0 ? ft_nprint_w(e, 1) : 0;	
+		e->w != 0 ? ft_nprint_w(e, 1) : 0;
 		*i = *i + 1;
 	}
 	ft_ini(e);
@@ -102,4 +102,27 @@ void	ft_is_X(int *i, t_en *e)
 		*i = *i + 1;
 	}
 	ft_ini(e);
+}
+void	ft_is_invalid(char *f, int *i, t_en *e)
+{
+	int i1;
+	(void)f;
+	if (e->m == 0)
+	{
+		i1 = *i;
+		//while(f[*i] > 6 && f[*i] < 14)
+		//	*i = *i + 1;
+		//e->w = e->w + 1;
+		e->r += (e->w > 0 ? e->w - 1 : e->w);
+		while (--e->w > 0)
+			e->z > 0 ? write(1, "0", 1) : write(1, " ", 1);
+		e->r += ft_putchar(f[*i]);
+
+	//e->w != 0 ? ft_print_w(e, 0) : 0;
+		*i = *i + 1;
+	}
+	// else
+	// {
+	// 	i1 = 0
+	// }
 }

@@ -55,7 +55,7 @@ void	ft_nprint_w(t_en *e, long long int n)
 		else
 			e->print = e->print + 1;
 	}
-	while (e->w > e->print)
+	while (e->w > e->print || e->z > 0)
 	{
 		e->z > 0 ? write(1, "0", 1) : 0;
 		e->z == 0 ? write(1, " ", 1) : 0;

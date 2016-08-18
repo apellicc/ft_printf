@@ -58,7 +58,7 @@ void	ft_check_width(char *f, int *i, t_en *e);
 void	ft_check_precision(char *f, int *i, t_en *e);
 void	ft_check_modify_type(char *f, int *i, t_en *e);
 void	ft_check_specifier(char *f, int *i, t_en *e);
-void	ft_select_print(int *i, t_en *e);
+void	ft_select_print(char *f, int *i, t_en *e);
 void	ft_check(char *f, int *i, t_en *e);
 void	ft_parse(char *f, t_en *e);
 void	ft_ini(t_en *e);
@@ -67,4 +67,6 @@ int		ft_putstr_capitalizer(char *str);
 int		ft_putstr_minimizer(char *str);
 void	ft_print_w(t_en *e, long long int n);
 void	ft_nprint_w(t_en *e, long long int n);
+void	ft_is_invalid(char *f, int *i, t_en *e);
+
 #endif

@@ -25,9 +25,10 @@ void 	ft_ini(t_en *e)
 	e->s = 0;
 	e->print = 0;
 }
-void	ft_select_print(int *i, t_en *e)
+void	ft_select_print(char *f, int *i, t_en *e)
 {
 		//!(ft_strchr("%diDuUoOxXsSp", e->f)) ? ft_invalid(i, e) : 0;
+		e->f == 'v' ? ft_is_invalid(f, i, e) : 0;
 		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
 	 	e->f == 'D' ? ft_is_D(i, e) : 0;
 	 	e->f == 'u' ? ft_is_u(i, e) : 0;
@@ -42,6 +43,7 @@ void	ft_select_print(int *i, t_en *e)
 	 	e->f == 'c' ? ft_is_c(i, e) : 0;
 	 //	e->f == 'C' ? ft_is_C(i, e) : 0;
 	 	e->f == '%' ? ft_is_percent(i, e) : 0;
+
 	//	!ft_strchr("diDuUoOxXsSp", e->f) ? ft_is_invalid(i, e)
 
 }
@@ -62,7 +64,7 @@ void	ft_check(char *f, int *i, t_en *e)
 	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	e->c = 0 : 0;
 	//ft_check_priority(f, i, e);
-	ft_select_print(i, e);
+	ft_select_print(f, i, e);
 }
 
 void	ft_parse(char *f, t_en *e)

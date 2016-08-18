@@ -62,5 +62,7 @@ void	ft_check_specifier(char *f, int *i, t_en *e)
 //	ft_putendl("dans check specifier");
 	if ((ft_strchr("sSpdDioOuUxXcC%", f[*i])))
 		e->f = *ft_strchr("sSpdDioOuUxXcC%", f[*i]);
+	else if (f[*i] != 0)
+		e->f = 'v';
 //	ft_putendl("apres dans check specifier");
 }
