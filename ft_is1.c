@@ -15,6 +15,8 @@ void	ft_is_d(int *i, t_en *e)
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	e->print = ft_intlen(nb);
 	e->r += e->print;
+	e->p != 0 && nb < 0 ? e->p = 0 : 0;
+	e->s != 0 && nb < 0 ? e->s = 0 : 0;
 	if (e->m == 0)
 	{
 		//printf("%ld valeur ")

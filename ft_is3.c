@@ -12,8 +12,10 @@ void	ft_is_s(int *i, t_en *e)
 		//ft_putendl("je suis ici");
 		str = va_arg(e->a, char *);
 		//e->print = ft_strlen(str);
+		e->s = 0;
 		if (e->m == 0)
 		{
+			//!str || str[0] == '\0' ? e->s = 0 : 0;
 			if (e->s != 0)
 			{
 				e->print++;
@@ -22,7 +24,7 @@ void	ft_is_s(int *i, t_en *e)
 			}
 			if (!str)
 			{
-		//		ft_putendl("je suis ici");
+				//		ft_putendl("je suis ici");
 				e->print += 6;
 				e->w != 0 ? ft_print_w(e, 1) : 0;
 

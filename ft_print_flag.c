@@ -2,21 +2,8 @@
 void	ft_print_w(t_en *e, long long int n)
 {
 	//ft_putendl("nqiqiq");
-	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && ft_strchr("oOxXp", e->f)))
-	{
-		if(e->f == 'x' || e->f == 'X')
-			e->print = e->print + 2;
-		else
-			e->print = e->print + 1;
-	}
-	while (e->w > e->print)
-	{
-		e->z > 0 ? write(1, "0", 1) : 0;
-		e->z == 0 ? write(1, " ", 1) : 0;
-		--e->w;
-		e->r = e->r + 1;
-	}
-	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && (ft_strchr("oO", e->f))))
+	e->s != 0 && e->z != 0 ? e->print += 1 : 0;
+	if (e->p > 0 || e->s > 0 || (e->d > 0 && (ft_strchr("oO", e->f))))
 	{
 		//ft_putendl("nqiqiq");
 		e->p > 0 && n > -1 ? write(1, "+", 1) : 0;
@@ -31,6 +18,21 @@ void	ft_print_w(t_en *e, long long int n)
 		 e->d > 0 && e->f == 'X' ? write(1, "0X", 2) : 0;
 		 e->r = e->r + 2;
 	 }
+	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && ft_strchr("oOxXp", e->f)))
+	{
+		if(e->f == 'x' || e->f == 'X')
+			e->print = e->print + 2;
+		else
+			e->print = e->print + 1;
+	}
+	while (e->w > e->print)
+	{
+		e->z > 0 ? write(1, "0", 1) : 0;
+		e->z == 0 ? write(1, " ", 1) : 0;
+		--e->w;
+		e->r = e->r + 1;
+	}
+
 }
 void	ft_nprint_w(t_en *e, long long int n)
 {

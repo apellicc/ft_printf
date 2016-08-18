@@ -63,6 +63,7 @@ void	ft_check(char *f, int *i, t_en *e)
 	//ft_putendl("apres check specifier");
 	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	e->c = 0 : 0;
+	e->z == 0 && e->s == 0 ? e->z = 0 : 0;
 	//ft_check_priority(f, i, e);
 	ft_select_print(f, i, e);
 }
