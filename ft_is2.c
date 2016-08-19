@@ -7,9 +7,9 @@ void	ft_is_o(int *i, t_en *e)
 {
 	unsigned long long int nb;
 
-	e->c == 0 ? nb = va_arg(e->a, int) : 0;
-	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
-	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, int) : 0;
+	e->c == 0 ? nb = va_arg(e->a, unsigned int) : 0;
+	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, unsigned int) : 0;
+	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, unsigned int) : 0;
 	e->c == 'l' ? nb = (unsigned long int)va_arg(e->a, unsigned long long int) : 0;
 	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
 	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
