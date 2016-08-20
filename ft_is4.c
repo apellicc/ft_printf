@@ -158,7 +158,7 @@ void  ft_is_S(int *i, t_en *e)
 
 	value = NULL;
 	int tmp;
-	//int  t = 0;
+	int  t = 0;
 //ft_putendl("ici s");
 value = va_arg(e->a, wchar_t *);
 	if (e->m == 0)
@@ -183,12 +183,27 @@ value = va_arg(e->a, wchar_t *);
 			// ft_nbrendl(e->pr);
 				// ft_nbrendl(e->print);
 				//ft_putendl("ici");
-			e->pr < tmp && e->pr != 0 ? e->r += write(1, value, e->pr) : 0;
-			e->pr >= tmp || e->pr == 0 ? e->r += ft_putswchar(value) : 0;
+			if (e->pr < tmp && e->pr > 0)
+			{
+				tmp = ft_wcharlen(value[t]);
+				while (e->pr >= tmp)
+				{
+					 e->r += ft_putwchar(value[t]);
+					 e->pr -= tmp;
+					 t++;
+					 tmp = ft_wcharlen(value[t]);
+
+				}
+			//e->r += ft_putswchar(value);
+
 				//ft_putendl("ici");
 		}
-			e->pr >= 0 ? *i = *i + 1 : e->r++;
+		else
+			e->pr >= tmp || e->pr == 0 ? e->r += ft_putswchar(value) : 0;
+
 	}
+	e->pr >= 0 ? *i = *i + 1 : 0;
+}
 	else
 	{
 		//ft_putendl("ici s2 ");

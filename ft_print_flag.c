@@ -36,9 +36,12 @@ void	ft_print_w(t_en *e, long long int n)
 	if (e->w > e->pr)
 	{
 		n < 0 && (e->pr > e->print) ? e->w-- : 0;
-		e->pr < 0 && (e->f == 's' || e->f == 'c' || e->f == 'S' || e->f == 'C') ? e->print = 0 : 0;
+		//e->pr <= 0 && e->f == 'p' ? e->print -= 1 : 0;
+		e->pr < 0 && (e->f == 's' || e->f == 'c' || e->f == 'S' || e->f == 'C' || e->f == 'p') ? e->print = 0 : 0;
 		while ((e->w > e->pr) && (e->w > e->print))
 		{
+			//ft_nbrendl(e->w);
+			//ft_nbrendl(e->print);
 			if (e->z > 0)
 				write(1, "0", 1);
 			else
