@@ -20,7 +20,7 @@ void	ft_print_w(t_en *e, long long int n)
 		e->d > 0 && (e->f == 'o' || e->f == 'O') ? write(1, "0", 1) : 0;
 		e->r = e->r + 1;
 	}
-	 if (e->d > 0 && (ft_strchr("xX", e->f)))
+	 if (e->d > 0 && (ft_strchr("xX", e->f)) && e->w <= e->pr && e->z != 0)
 	 {
 		 e->d > 0 && e->f == 'x' ? write(1, "0x", 2) : 0;
 		 e->d > 0 && e->f == 'X' ? write(1, "0X", 2) : 0;
@@ -82,7 +82,7 @@ void	ft_nprint_w(t_en *e, long long int n)
 		e->d > 0 && (e->f == 'o' || e->f == 'O') ? write(1, "0", 1) : 0;
 		e->r = e->r + 1;
 	}
-	if (e->d > 0 && ft_strchr("xX", e->f))
+	if (e->d > 0 && ft_strchr("xX", e->f) && e->w <= e->pr && e->z != 0)
 	 {
 		 e->d > 0 && e->f == 'x' ? write(1, "0x", 2) : 0;
 		 e->d > 0 && e->f == 'X' ? write(1, "0X", 2) : 0;

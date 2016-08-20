@@ -83,6 +83,22 @@ void	ft_is_c(int *i, t_en *e)
 
 void	ft_is_percent(int *i, t_en *e)
 {
-	e->r += ft_putchar('%');
-	*i = *i + 1;
+	if (e->m == 0)
+	{
+		e->r += (e->w > 0 ? e->w - 1 : e->w);
+		while (--e->w > 0)
+			e->z > 0 ? write(1, "0", 1) : write(1, " ", 1);
+		e->r += ft_putchar('%');
+		*i = *i + 1;
+	}
+	else
+	{
+		e->r += ft_putchar('%');
+		e->r += (e->w > 0 ? e->w - 1 : e->w);
+		while (--e->w > 0)
+			e->z > 0 ? write(1, "0", 1) : write(1, " ", 1);
+		*i = *i + 1;
+	}
+	// e->r += ft_putchar('%');
+	// *i = *i + 1;
 }
