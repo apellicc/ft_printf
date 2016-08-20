@@ -70,7 +70,7 @@ void	ft_is_d(int *i, t_en *e)
 	}
 	else
 	{
-		e->p != 0 && e? e->r += ft_putchar('+') : 0;
+		e->p != 0 ? e->r += ft_putchar('+') : 0;
 		if (nb < 0)
    		{
    			ft_putchar('-');
@@ -84,7 +84,7 @@ void	ft_is_d(int *i, t_en *e)
 				e->pr--;
 			}
 		}
-		e->w > e->pr && e->w > e->print && e->pr > 0? e->print++ : 0;
+		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
 		ft_putunsignedlongnbr(nb);
 		while (e->w > e->print || e->z > 0)
 		{
@@ -112,47 +112,60 @@ void	ft_is_u(int *i, t_en *e)
 	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	e->print = ft_uintlen(nb);
+	e->r += e->print;
+	e->s != 0 ? e->s = 0 : 0;
+	e->p != 0 ? e->p = 0 : 0;
 	if (e->m == 0)
 	{
-		e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
+		e->p != 0 && (e->w <= 0 || e->pr <= 0)? e->r += ft_putchar('+') : 0;
+		if (e->w > e->pr)
+		{
+			while ((e->w > e->pr) && (e->w > e->print))
+			{
+				if (e->z > 0 && (e->w > e->pr && e->pr > 0))
+					write(1, " ", 1);
+				else if (e->z > 0)
+					write(1, "0", 1);
+				else
+					write(1, " ", 1);
+				--e->w;
+				e->r = e->r + 1;
+			}
+		}
+		if (e->pr > e->print)
+		{
+			while(e->pr > e->print)
+			{
+				e->r += write(1, "0", 1);
+				e->pr--;
+			}
+		}
 		ft_putunsignedlongnbr(nb);
-		e->r += ft_uintlen(nb);
-		*i = *i + 1;
 	}
 	else
 	{
-		//printf("%ld valeur ")
+		e->p != 0 && e? e->r += ft_putchar('+') : 0;
+		if (e->pr > e->print)
+		{
+			while(e->pr > e->print)
+			{
+				e->r += write(1, "0", 1);
+				e->pr--;
+			}
+		}
+		e->w > e->pr && e->w > e->print && e->pr > 0? e->print++ : 0;
 		ft_putunsignedlongnbr(nb);
-		e->r += e->print;
-		e->w > e->print ? ft_nprint_w(e, e->print) : 0;
-		*i = *i + 1;
+		while (e->w > e->print || e->z > 0)
+		{
+			e->z > 0 ? write(1, "0", 1) : 0;
+			e->z == 0 ? write(1, " ", 1) : 0;
+			--e->w;
+			e->r = e->r + 1;
+		}
 	}
-	ft_ini(e);
+	*i += 1;
 }
 
-void	ft_is_D(int *i, t_en *e)
-{
-
-	 long long		nb;
-
-	nb = (long long)va_arg(e->a, long long);
-	e->print = ft_intlen(nb);
-	if (e->m == 0)
-	{
-		e->w != 0 ? ft_print_w(e, e->print) : 0;
-		ft_putlongnbr(nb);
-		e->r += ft_intlen(nb);
-		*i = *i + 1;
-	}
-	else
-	{
-		ft_putlongnbr(nb);
-		e->r += e->print;
-		e->w > e->print ? ft_nprint_w(e, e->print) : 0;
-		*i = *i + 1;
-	}
-	ft_ini(e);
-}
 
 void	ft_is_O(int *i, t_en *e)
 {

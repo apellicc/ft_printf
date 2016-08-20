@@ -30,11 +30,15 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	// ft_putendl("jejkek");
 	// 	ft_putchar(e->c);
 		//ft_putendl("ici select");
+		e->f == 'D' || e->f == 'U' ? e->c = 'L' : 0;
+		e->f == 'D' ? e->f = 'd' : 0;
+		e->f == 'U' ? e->f = 'u' : 0;
+
+
 		e->f == 'v' ? ft_is_invalid(f, i, e) : 0;
 		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
-	 	e->f == 'D' ? ft_is_D(i, e) : 0;
+	 	//e->f == 'D' ? ft_is_D(i, e) : 0;
 	 	e->f == 'u' ? ft_is_u(i, e) : 0;
-	 	e->f == 'U' ? ft_is_U(i, e) : 0;
 	 	e->f == 'o' ? ft_is_o(i, e) : 0;
 	 	e->f == 'O' ? ft_is_O(i, e) : 0;
 	 	e->f == 'p' ? ft_is_p(i, e) : 0;
