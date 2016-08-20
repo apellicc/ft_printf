@@ -44,11 +44,12 @@ void	ft_is_s(int *i, t_en *e)
 				// ft_nbrendl(e->w);
 				// ft_nbrendl(e->pr);
 				// ft_nbrendl(e->print);
+				//ft_putendl("ici");
 				e->pr < tmp && e->pr != 0 ? e->r += write(1, str, e->pr) : 0;
-				e->pr >= tmp || e->pr == 0? e->r += ft_putstr(str) : 0;
-
+				e->pr >= tmp || e->pr == 0 ? e->r += ft_putstr(str) : 0;
+				//ft_putendl("ici");
 			}
-			*i = *i + 1;
+			e->pr >= 0 ? *i = *i + 1 : e->r++;
 			ft_ini(e);
 		}
 	}
@@ -58,15 +59,19 @@ void	ft_is_s(int *i, t_en *e)
 void	ft_is_c(int *i, t_en *e)
 {
 	char c;
-
+	//  ft_putendl("icoi");
+	// ft_nbrendl(e->ret);
 	if (e->c == 0)
 	{
 		c = va_arg(e->a, int);
+		// ft_putendl("ic");
+		c == 0 && e->pr < 0 ? e->r++ : 0;
 		e->print = 1;
 		if (e->m == 0)
 		{
 			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 			e->r += ft_putchar(c);
+			//ft_nbrendl(e->r);
 			*i = *i + 1;
 		}
 		ft_ini(e);

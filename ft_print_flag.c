@@ -39,7 +39,7 @@ void	ft_print_w(t_en *e, long long int n)
 	if (e->w > e->pr)
 	{
 		n < 0 && (e->pr > e->print) ? e->w-- : 0;
-		e->pr < 0 && e->f == 's' ? e->print = 0 : 0;
+		e->pr < 0 && (e->f == 's' || e->f == 'c') ? e->print = 0 : 0;
 		//
 		// ft_nbrendl(e->w);
 		//
@@ -71,10 +71,11 @@ void	ft_print_w(t_en *e, long long int n)
 		}
 		// e->print--;
 	//	ft_putendl("ici");
-		while(tmp > e->print)
+		while(tmp > e->print || (e->pr > e->w && e->f == 'p'))
 		{
 			e->r += write(1, "0", 1);
 			tmp--;
+			(e->pr > e->w && e->f == 'p') ? e->pr-- : 0;
 		}
 	}
 }

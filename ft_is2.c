@@ -35,9 +35,24 @@ void	ft_is_p(int *i, t_en *e)
 	e->print = ft_strlen(tmp) + 2;
 	if (e->m == 0)
 	{
-		e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
-		e->r += ft_putstr("0x");
-		e->r += ft_putstr(tmp);
+		if (e->pr > e->w)
+		{
+			e->r += ft_putstr("0x");
+			//e->w += 2;
+			//ft_putendl("lele");
+		//	e->pr -= 2;
+			//e->print += 2;
+			//e->print += ft_strlen(tmp);
+			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
+			*tmp != '0' ? e->r += ft_putstr(tmp) : 0;
+
+		}
+		else
+		{
+			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
+			e->r += ft_putstr("0x");
+			e->r += ft_putstr(tmp);
+		}
 		*i = *i + 1;
 	}
 	else

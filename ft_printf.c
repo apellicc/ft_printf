@@ -70,6 +70,10 @@ void	ft_check(char *f, int *i, t_en *e)
 	//ft_nbrendl(e->z);
 	//ft_putendl("lil");
 	(e->pr >= 0) || (e->w > 0) ? ft_select_print(f, i, e) : 0;
+	((e->pr < 0) || (e->w <= 0)) && e->f == 'c' ? e->r++ : 0;
+
+	// (e->pr < 0 || (e->w <= 0)
+	//ft_putendl("ici 2");
 	ft_ini(e);
 }
 
@@ -86,14 +90,17 @@ void	ft_parse(char *f, t_en *e)
 		{
 		//	ft_putendl("dans if parse");
 			ft_putchar(f[i]);
+			//ft_putendl("ici 3");
+
 			++e->r;
-			++i;
+			i++;
 		}
 		else
 		{
 			//ft_putendl("dans else parse");
-			i++;
 		//	ft_putnbr(i);
+			++i;
+
 			ft_check(f, &i, e);
 		}
 	}
