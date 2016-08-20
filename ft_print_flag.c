@@ -4,9 +4,9 @@ void	ft_print_w(t_en *e, long long int n)
 {
 	int tmp;
 
-	if ((e->w > e->pr) && (e->pr < e->print) && (e->f == 's') && (e->pr != 0))
+	if ((e->w > e->pr) && (e->pr < e->print) && (e->f == 's' || e->f == 'S') && (e->pr != 0))
 		e->print = e->pr;
-	else if ((e->pr > e->print) && (e->f == 's'))
+	else if ((e->pr > e->print) && (e->f == 's' || e->f == 'S'))
 			e->pr = e->print;
 	tmp = e->pr;
 	e->s != 0 && e->z != 0 ? e->print += 1 : 0;
@@ -36,7 +36,7 @@ void	ft_print_w(t_en *e, long long int n)
 	if (e->w > e->pr)
 	{
 		n < 0 && (e->pr > e->print) ? e->w-- : 0;
-		e->pr < 0 && (e->f == 's' || e->f == 'c') ? e->print = 0 : 0;
+		e->pr < 0 && (e->f == 's' || e->f == 'c' || e->f == 'S' || e->f == 'C') ? e->print = 0 : 0;
 		while ((e->w > e->pr) && (e->w > e->print))
 		{
 			if (e->z > 0)
@@ -64,6 +64,13 @@ void	ft_print_w(t_en *e, long long int n)
 }
 void	ft_nprint_w(t_en *e, long long int n)
 {
+	int tmp;
+
+	if ((e->w > e->pr) && (e->pr < e->print) && (e->f == 's' || e->f == 'S') && (e->pr != 0))
+		e->print = e->pr;
+	else if ((e->pr > e->print) && (e->f == 's' || e->f == 'S'))
+			e->pr = e->print;
+	tmp = e->pr;
 	if (e->p > 0 || (e->s > 0 && n < 0) || (e->d > 0 && (ft_strchr("oO", e->f))))
 	{
 		e->p > 0 && n > -1 ? write(1, "+", 1) : 0;
