@@ -40,6 +40,7 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	 	e->f == 's' ? ft_is_s(i, e) : 0;
 	 	e->f == 'c' ? ft_is_c(i, e) : 0;
 		e->f == 'C' ? ft_is_C(i, e) : 0;
+		e->f == 'S' ? ft_is_S(i, e) : 0;	
 	 	e->f == '%' ? ft_is_percent(i, e) : 0;
 }
 

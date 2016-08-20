@@ -67,5 +67,7 @@ int		ft_putstr_minimizer(char *str);
 void	ft_print_w(t_en *e, long long int n);
 void	ft_nprint_w(t_en *e, long long int n);
 void	ft_is_invalid(char *f, int *i, t_en *e);
+void  	ft_is_S(int *i, t_en *e);
+int		ft_putwchar(wchar_t value);
 
 #endif
