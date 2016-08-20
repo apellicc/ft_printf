@@ -57,8 +57,11 @@ int		ft_swcharlen(wchar_t *value)
 {
 	int ret = 0;
 	int t = 0;
+	//ft_putendl("ici l 1");
 	while (value[t])
 	{
+		//ft_putendl("ici l ");
+	//	ft_nbrendl(t);
 		//ft_putendl("uxux");
 		ret += ft_wcharlen(value[t]);
 		t++;
@@ -156,10 +159,11 @@ void  ft_is_S(int *i, t_en *e)
 	value = NULL;
 	int tmp;
 	//int  t = 0;
-
+//ft_putendl("ici s");
+value = va_arg(e->a, wchar_t *);
 	if (e->m == 0)
 	{
-		if (!(value = va_arg(e->a, wchar_t *)))
+		if (!value)
 		{
 			e->s = 0;
 			//		ft_putendl("je suis ici");
@@ -187,13 +191,14 @@ void  ft_is_S(int *i, t_en *e)
 	}
 	else
 	{
+		//ft_putendl("ici s2 ");
 		tmp = ft_swcharlen(value);
-
+		//ft_putendl("ici s3");
 		ft_putswchar(value);
 		e->print = tmp;
 		e->r += tmp;
 		e->w > tmp ? ft_nprint_w(e, tmp) : 0;
-		//*i = *i + 1;
+		*i = *i + 1;
 	}
 		//ft_putendl("lol");
 		// while (value != NULL && value[t])
