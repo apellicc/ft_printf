@@ -67,6 +67,7 @@ void	ft_is_C(int *i, t_en *e)
 
 	value = va_arg(e->a, wchar_t);
 	e->r += ft_putwchar(value);
+	//ft_nbrendl(e->r);
 	*i += 1;
 }
 void  ft_is_S(int *i, t_en *e)

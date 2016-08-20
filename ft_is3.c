@@ -9,7 +9,7 @@ void	ft_is_s(int *i, t_en *e)
 	int tmp;
 
 	//ft_putendl("dans s");
-	if (e->c == 0)
+	if (e->c != 'l')
 	{
 		// ft_putendl("je suis ici");
 		str = va_arg(e->a, char *);
@@ -53,15 +53,14 @@ void	ft_is_s(int *i, t_en *e)
 			ft_ini(e);
 		}
 	}
-	//e->c == 'l' ? ft_is_S(i, e) : 0;
+	e->c == 'l' ? ft_is_S(i, e) : 0;
 }
 
 void	ft_is_c(int *i, t_en *e)
 {
 	char c;
 	//  ft_putendl("icoi");
-	// ft_nbrendl(e->ret);
-	if (e->c == 0)
+	if (e->c != 'l')
 	{
 		c = va_arg(e->a, int);
 		// ft_putendl("ic");
@@ -76,7 +75,10 @@ void	ft_is_c(int *i, t_en *e)
 		}
 		ft_ini(e);
 	}
-//	e->c == 'l' ? ft_is_C(i, e) : 0;
+	//ft_nbrendl(e->r);
+	e->c == 'l' ? ft_is_C(i, e) : 0;
+//	ft_putendl("ekek");
+//		ft_nbrendl(e->r);
 }
 
 void	ft_is_percent(int *i, t_en *e)

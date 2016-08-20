@@ -58,7 +58,7 @@ void	ft_is_p(int *i, t_en *e)
 
 void	ft_is_x(int *i, t_en *e)
 {
-	int		nb;
+	long long int		nb;
 	char *tmp;
 
 	e->c == 0 ? nb = va_arg(e->a, int) : 0;
@@ -84,7 +84,7 @@ void	ft_is_x(int *i, t_en *e)
 
 void	ft_is_X(int *i, t_en *e)
 {
-	int		nb;
+	long long int		nb;
 	char	*tmp;
 
 	e->c == 0 ? nb = va_arg(e->a, int) : 0;

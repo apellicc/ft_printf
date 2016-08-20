@@ -75,6 +75,8 @@ void	ft_check_modify_type(char *f, int *i, t_en *e)
 	f[*i] == 'l' && f[*i + 1]  == 'l' ? e->c = 'L' : 0;
 	e->c == 'H' || e->c == 'L' ? *i += 2 : 0;
 	e->c == 'j' || e->c == 'z' || e->c == 'l' || e->c == 'h' ? ++*i : 0;
+	// ft_putchar(e->c);
+
 }
 
 void	ft_check_specifier(char *f, int *i, t_en *e)

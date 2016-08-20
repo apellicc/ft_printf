@@ -27,6 +27,9 @@ void 	ft_ini(t_en *e)
 }
 void	ft_select_print(char *f, int *i, t_en *e)
 {
+	// ft_putendl("jejkek");
+	// 	ft_putchar(e->c);
+
 		e->f == 'v' ? ft_is_invalid(f, i, e) : 0;
 		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
 	 	e->f == 'D' ? ft_is_D(i, e) : 0;
@@ -40,7 +43,7 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	 	e->f == 's' ? ft_is_s(i, e) : 0;
 	 	e->f == 'c' ? ft_is_c(i, e) : 0;
 		e->f == 'C' ? ft_is_C(i, e) : 0;
-		e->f == 'S' ? ft_is_S(i, e) : 0;	
+		e->f == 'S' ? ft_is_S(i, e) : 0;
 	 	e->f == '%' ? ft_is_percent(i, e) : 0;
 }
 
@@ -50,13 +53,15 @@ void	ft_check(char *f, int *i, t_en *e)
 	ft_isdigit(f[*i]) == 1 ? ft_check_width(f, i, e) : 0;
 	f[*i] == '.' ? ft_check_precision(f, i, e) : 0;
 	(ft_strchr("hljz", f[*i])) ? ft_check_modify_type(f, i, e) : 0;
+
 	ft_check_specifier(f, i, e);
-	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
-	e->c = 0 : 0;
+	// (e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
+	// e->c = 0 : 0;
+	e->f == 'p' ? e->c = 0 : 0;
 	((e->f == 'o' || e->f == 'O') && e->d > 0 && e->pr < 0) ? e->pr = 0 : 0;
 	e->pr < 0 ? *i += 1 : 0;
 	(e->pr >= 0) || (e->w > 0) ? ft_select_print(f, i, e) : 0;
-	((e->pr < 0) || (e->w <= 0)) && e->f == 'c' ? e->r++ : 0;
+	((e->pr < 0) || (e->w <= 0)) && (e->f == 'c' && e->c != 'l') ? e->r++ : 0;
 	ft_ini(e);
 }
 
