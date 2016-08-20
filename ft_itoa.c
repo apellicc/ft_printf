@@ -1,21 +1,4 @@
 #include "ft_printf.h"
-// unsigned int	ft_getnbrsize(LL n, int base)
-// {
-// 	int size;
-//
-// 	size = 1;
-// 	if (n < 0)
-// 	{
-// 		size++;
-// 		n = -n;
-// 	}
-// 	while (n > base - 1)
-// 	{
-// 		n = n / base;
-// 		size++;
-// 	}
-// 	return (size);
-// }
 
 char		*ft_uitoa_base(unsigned long long nb, int base)
 {
@@ -88,23 +71,3 @@ char	*ft_itoa_base(long long int n, int base)
 	else
 		return (ft_convert(n, base, str, i));
 }
-
-//
-// char	*ft_uitoa_base(unsigned long long int n, int base)
-// {
-// 	char	*str;
-// 	int		i;
-//
-// 	str = (char *)malloc(sizeof(*str) * 21);
-// 	i = 0;
-// 	while (i < 21)
-// 	{
-// 		str[i] = '\0';
-// 		i++;
-// 	}
-// 	i = 0;
-// 	if (base != 16)
-// 		return (ft_uconvert((unsigned long long int)n, base, str, i));
-// 	else
-// 		return (ft_uconvert(n, base, str, i));
-// }

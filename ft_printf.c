@@ -27,7 +27,6 @@ void 	ft_ini(t_en *e)
 }
 void	ft_select_print(char *f, int *i, t_en *e)
 {
-		//!(ft_strchr("%diDuUoOxXsSp", e->f)) ? ft_invalid(i, e) : 0;
 		e->f == 'v' ? ft_is_invalid(f, i, e) : 0;
 		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
 	 	e->f == 'D' ? ft_is_D(i, e) : 0;
@@ -39,41 +38,24 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	 	e->f == 'x' ? ft_is_x(i, e) : 0;
 	 	e->f == 'X' ? ft_is_X(i, e) : 0;
 	 	e->f == 's' ? ft_is_s(i, e) : 0;
-	 //	e->f == 'S' ? ft_is_S(i, e) : 0;
 	 	e->f == 'c' ? ft_is_c(i, e) : 0;
-	 //	e->f == 'C' ? ft_is_C(i, e) : 0;
+		e->f == 'C' ? ft_is_C(i, e) : 0;
 	 	e->f == '%' ? ft_is_percent(i, e) : 0;
-
-	//	!ft_strchr("diDuUoOxXsSp", e->f) ? ft_is_invalid(i, e)
-
 }
 
 void	ft_check(char *f, int *i, t_en *e)
 {
-	//ft_putendl("dans check");
 	(ft_strchr(" +-0#",f[*i])) ? ft_check_flag(f, i, e) : 0;
-	//ft_putendl("apres check flag");
 	ft_isdigit(f[*i]) == 1 ? ft_check_width(f, i, e) : 0;
-	//ft_putendl("apres check width");
 	f[*i] == '.' ? ft_check_precision(f, i, e) : 0;
-	//ft_putendl("apres check precision");
 	(ft_strchr("hljz", f[*i])) ? ft_check_modify_type(f, i, e) : 0;
-//	ft_putendl("apres check modify");
-	// ft_putchar(f[*i]);
 	ft_check_specifier(f, i, e);
-	//ft_putendl("apres check specifier");
 	(e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	e->c = 0 : 0;
 	((e->f == 'o' || e->f == 'O') && e->d > 0 && e->pr < 0) ? e->pr = 0 : 0;
 	e->pr < 0 ? *i += 1 : 0;
-	//ft_check_priority(f, i, e);
-	//ft_nbrendl(e->z);
-	//ft_putendl("lil");
 	(e->pr >= 0) || (e->w > 0) ? ft_select_print(f, i, e) : 0;
 	((e->pr < 0) || (e->w <= 0)) && e->f == 'c' ? e->r++ : 0;
-
-	// (e->pr < 0 || (e->w <= 0)
-	//ft_putendl("ici 2");
 	ft_ini(e);
 }
 
@@ -84,23 +66,15 @@ void	ft_parse(char *f, t_en *e)
 	i = 0;
 	while (f[i] != '\0')
 	{
-		//ft_putendl("dans while parse");
-		//ft_putendl("dans boucle ftarse");
 		if (f[i] != '%')
 		{
-		//	ft_putendl("dans if parse");
 			ft_putchar(f[i]);
-			//ft_putendl("ici 3");
-
 			++e->r;
 			i++;
 		}
 		else
 		{
-			//ft_putendl("dans else parse");
-		//	ft_putnbr(i);
 			++i;
-
 			ft_check(f, &i, e);
 		}
 	}
@@ -112,9 +86,7 @@ int		ft_printf(const char *format, ...)
 	t_en	*e;
 	int		ret;
 	char *tmp;
-	//ft_putendl("ici");
-//	ft_putstr(format);
-//	ft_putchar('\n');
+
 
 	tmp = (char *)format;
 	e = (t_en *)malloc(sizeof(t_en));

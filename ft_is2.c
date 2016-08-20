@@ -1,8 +1,5 @@
 #include "ft_printf.h"
 
-//e->f == 'O' ? ft_is_O(i, e) : 0;
-
-
 void	ft_is_o(int *i, t_en *e)
 {
 	unsigned long long int nb;
@@ -18,7 +15,6 @@ void	ft_is_o(int *i, t_en *e)
 	if (e->m == 0)
 	{
 		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0 ? ft_print_w(e, 1) : 0;
-		//e->w == 0 && e->d != 0  && nb != 0 ? e->r += write(1, "0", 1) : 0;
 		e->r += ft_putstr(ft_uitoa_base(nb, 8));
 		*i = *i + 1;
 	}
@@ -38,11 +34,6 @@ void	ft_is_p(int *i, t_en *e)
 		if (e->pr > e->w)
 		{
 			e->r += ft_putstr("0x");
-			//e->w += 2;
-			//ft_putendl("lele");
-		//	e->pr -= 2;
-			//e->print += 2;
-			//e->print += ft_strlen(tmp);
 			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 			*tmp != '0' ? e->r += ft_putstr(tmp) : 0;
 
@@ -89,8 +80,6 @@ void	ft_is_x(int *i, t_en *e)
 		*i = *i + 1;
 	}
 	ft_ini(e);
-
-
 }
 
 void	ft_is_X(int *i, t_en *e)
@@ -122,31 +111,22 @@ void	ft_is_invalid(char *f, int *i, t_en *e)
 {
 	int i1;
 	(void)f;
+
 	if (e->m == 0)
 	{
 		i1 = *i;
-		//while(f[*i] > 6 && f[*i] < 14)
-		//	*i = *i + 1;
-		//e->w = e->w + 1;
 		e->r += (e->w > 0 ? e->w - 1 : e->w);
 		while (--e->w > 0)
 			e->z > 0 ? write(1, "0", 1) : write(1, " ", 1);
 		e->r += ft_putchar(f[*i]);
-
-	//e->w != 0 ? ft_print_w(e, 0) : 0;
 		*i = *i + 1;
 	}
 	else
 	{
-		//printf("%ld valeur ")
 		e->r += ft_putchar(f[*i]);
 		e->r += (e->w > 0 ? e->w - 1 : e->w);
 		while (--e->w > 0)
 			e->z > 0 ? write(1, "0", 1) : write(1, " ", 1);
 		*i = *i + 1;
 	}
-	// else
-	// {
-	// 	i1 = 0
-	// }
 }
