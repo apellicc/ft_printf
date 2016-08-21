@@ -14,5 +14,5 @@
 
 int		ft_putendl(char const *s)
 {
-	return(ft_putendl_fd(s, 1));
+	return (ft_putendl_fd(s, 1));
 }

@@ -13,13 +13,6 @@
 NAME = libftprintf.a
 
 SRC = *.c
-	#ft_printf.c\
-		ft_is1.c\
-		ft_is2.c\
-		ft_is3.c\
-		ft_itoa.c\
-		ft_print_flag.c\
-		ft_check.c
 
 OBJ = $(SRC:.c=.o)
 

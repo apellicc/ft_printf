@@ -2,8 +2,8 @@
 
 void	ft_is_s(int *i, t_en *e)
 {
-	char *str;
-	int tmp;
+	char	*str;
+	int		tmp;
 
 	if (e->c != 'l')
 	{
@@ -12,7 +12,8 @@ void	ft_is_s(int *i, t_en *e)
 		e->pr == 0 && tmp != 0 ? e->pr = tmp + e->w : 0;
 		if (e->m == 0)
 		{
-			!str || str[0] == '\0' || (ft_strcmp(str, "(null)") == 0) ? e->s = 0 : 0;
+			!str || str[0] == '\0' || (ft_strcmp(str, "(null)") == 0)
+			? e->s = 0 : 0;
 			if (e->s != 0)
 			{
 				e->print++;
@@ -27,10 +28,11 @@ void	ft_is_s(int *i, t_en *e)
 					if ((e->w > e->pr) && (e->pr < e->print) && (e->pr != 0))
 						e->print = e->pr;
 					else if ((e->pr > e->print))
-							e->pr = e->print;
+						e->pr = e->print;
 					tmp = e->pr;
 					e->s != 0 && e->z != 0 ? e->print += 1 : 0;
-					e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
+					e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0
+					? e->z = 0 : 0;
 					if (e->w > e->pr)
 					{
 						(e->pr > e->print) ? e->w-- : 0;
@@ -57,10 +59,9 @@ void	ft_is_s(int *i, t_en *e)
 					if ((e->w > e->pr) && (e->pr < e->print) && (e->pr != 0))
 						e->print = e->pr;
 					else if (e->pr > e->print && e->w < e->pr)
-							e->pr = e->print;
+						e->pr = e->print;
 					e->s != 0 && e->z != 0 ? e->print += 1 : 0;
 					tmp = e->pr;
-
 					if (e->w > e->pr)
 					{
 						e->pr < 0 ? e->print = 0 : 0;
@@ -77,7 +78,7 @@ void	ft_is_s(int *i, t_en *e)
 					}
 				}
 				if (e->pr >= 0 && e->pr <= e->print)
-				 	e->r += write(1, str, e->pr);
+					e->r += write(1, str, e->pr);
 				else if (e->pr >= 0 && e->pr > e->print)
 					e->r += ft_putstr(str);
 			}
@@ -98,7 +99,6 @@ void	ft_is_s(int *i, t_en *e)
 				e->print = e->pr;
 			else if (e->pr > e->print)
 				e->pr = e->print;
-
 			while (e->w > e->print && e->w > e->pr)
 			{
 				e->z > 0 ? write(1, "0", 1) : 0;
@@ -110,12 +110,13 @@ void	ft_is_s(int *i, t_en *e)
 		*i = *i + 1;
 		ft_ini(e);
 	}
-	e->c == 'l' ? ft_is_S(i, e) : 0;
+	e->c == 'l' ? ft_is_s2(i, e) : 0;
 }
 
 void	ft_is_c(int *i, t_en *e)
 {
-	char c;
+	char	c;
+
 	e->p != 0 ? e->p = 0 : 0;
 	e->d != 0 ? e->d = 0 : 0;
 	e->s != 0 ? e->s = 0 : 0;
@@ -164,7 +165,7 @@ void	ft_is_c(int *i, t_en *e)
 		}
 		*i = *i + 1;
 	}
-	e->c == 'l' ? ft_is_C(i, e) : 0;
+	e->c == 'l' ? ft_is_c2(i, e) : 0;
 }
 
 void	ft_is_percent(int *i, t_en *e)

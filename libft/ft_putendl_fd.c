@@ -18,5 +18,5 @@ int		ft_putendl_fd(char const *s, int fd)
 
 	i = ft_putstr_fd(s, fd);
 	i += ft_putchar_fd('\n', fd);
-	return(i);
+	return (i);
 }

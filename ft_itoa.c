@@ -1,13 +1,13 @@
 #include "ft_printf.h"
 
-char		*ft_uitoa_base(unsigned long long nb, int base)
+char	*ft_uitoa_base(unsigned long long nb, int base)
 {
-	char	*str;
-	int		size;
-	unsigned long long		save;
+	char					*str;
+	int						size;
+	unsigned long long		s;
 
 	size = 1;
-	save = nb;
+	s = nb;
 	while (nb > (unsigned long long int)base - 1)
 	{
 		nb = nb / base;
@@ -18,34 +18,35 @@ char		*ft_uitoa_base(unsigned long long nb, int base)
 	str[size] = '\0';
 	while (size--)
 	{
-		str[size] = (save % base < 10) ? (save % base) + '0' : (save % base) - 10 + 'a';
-		save = save / base;
+		str[size] = (s % base < 10) ? (s % base) + '0' : (s % base) - 10 + 'a';
+		s = s / base;
 	}
 	return (str);
 }
+
 char	*ft_convert(long long int n, int base, char *str, int i)
 {
-	long long int	div;
-	char		temp;
+	long long int	d;
+	char			temp;
 
-	div = 1;
+	d = 1;
 	if (n < 0)
 	{
 		n = -n;
 		str[i] = '-';
 		i++;
 	}
-	while (n / div >= base)
-		div *= base;
-	while (div > 0)
+	while (n / d >= base)
+		d *= base;
+	while (d > 0)
 	{
-		temp = '0' + n / div;
+		temp = '0' + n / d;
 		if (temp > '9')
 			str[i] = (temp + 39);
 		else
 			str[i] = temp;
-		n %= div;
-		div /= base;
+		n %= d;
+		d /= base;
 		i++;
 	}
 	return (str);

@@ -14,5 +14,5 @@
 
 int		ft_putstr(char const *s)
 {
-	return(ft_putstr_fd(s, 1));
+	return (ft_putstr_fd(s, 1));
 }

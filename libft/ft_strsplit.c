@@ -30,7 +30,7 @@ char		**ft_strsplit(char const *s, char c)
 	{
 		while (s[i] == c && s[i] != '\0')
 			i++;
-		if (s[i] != c &&s[i] != '\0' )//&& s[i + 1] == '\0' && s[i] != '\0')
+		if (s[i] != c && s[i] != '\0')
 		{
 			b = ft_lenword(s, c, i);
 			str[a++] = ft_strsub(s, i, b);

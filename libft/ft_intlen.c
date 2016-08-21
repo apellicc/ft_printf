@@ -14,8 +14,8 @@
 
 int		ft_intlen(long long int n)
 {
-	int	size;
-	unsigned long long i;
+	int					size;
+	unsigned long long	i;
 
 	size = 0;
 	i = n;

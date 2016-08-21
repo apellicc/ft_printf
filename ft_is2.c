@@ -2,15 +2,18 @@
 
 void	ft_is_o(int *i, t_en *e)
 {
-	unsigned long long int nb;
-	int test = 0;
-	char *tmp;
+	unsigned long long int	nb;
+	int						test;
+	char					*tmp;
 
+	test = 0;
 	e->c == 0 ? nb = va_arg(e->a, unsigned int) : 0;
 	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, unsigned int) : 0;
 	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, unsigned int) : 0;
-	e->c == 'l' ? nb = (unsigned long int)va_arg(e->a, unsigned long long int) : 0;
-	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'l' ? nb =
+	(unsigned long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'L' ? nb =
+	(unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
 	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	tmp = ft_uitoa_base(nb, 8);
@@ -21,12 +24,13 @@ void	ft_is_o(int *i, t_en *e)
 		{
 			e->s != 0 && e->z != 0 ? e->print += 1 : 0;
 			e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
-			if (e->d != 0 && (e->w <= e->print || e->w <= e->pr || e->z != 0) && nb != 0)
+			if (e->d != 0 && (e->w <= e->print || e->w <= e->pr || e->z != 0)
+			&& nb != 0)
 			{
 				e->r += write(1, "0", 1);
 				e->print += 1;
 			}
-			else if (e->d != 0 && (e->w > e->print || e->w > e->pr ) && nb != 0)
+			else if (e->d != 0 && (e->w > e->print || e->w > e->pr) && nb != 0)
 			{
 				test = 2;
 				e->w -= 1;
@@ -46,13 +50,13 @@ void	ft_is_o(int *i, t_en *e)
 				e->print += 1;
 			}
 		}
-		while(e->pr > e->print)
+		while (e->pr > e->print)
 		{
 			e->r += write(1, "0", 1);
 			e->pr--;
 		}
-	e->pr >= 0 || nb != 0 ? e->r += ft_putstr(tmp) : 0;
-	nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
+		e->pr >= 0 || nb != 0 ? e->r += ft_putstr(tmp) : 0;
+		nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
 	}
 	else
 	{
@@ -60,7 +64,7 @@ void	ft_is_o(int *i, t_en *e)
 		e->d > 0 && e->z == 0 ? e->print += 1 : 0;
 		if (e->pr > e->print)
 		{
-			while(e->pr > e->print)
+			while (e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
 				e->pr--;
@@ -69,7 +73,6 @@ void	ft_is_o(int *i, t_en *e)
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
 		e->pr >= 0 || nb != 0 ? e->r += ft_putstr(tmp) : 0;
 		nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
-
 		while (e->w > e->print || e->z > 0)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
@@ -84,10 +87,11 @@ void	ft_is_o(int *i, t_en *e)
 void	ft_is_p(int *i, t_en *e)
 {
 	long long int	v;
-	char *tmp;
-	int test = 0;
-	v = va_arg(e->a, long long int);
+	char			*tmp;
+	int				test;
 
+	v = va_arg(e->a, long long int);
+	test = 0;
 	tmp = ft_uitoa_base(v, 16);
 	e->print = ft_strlen(tmp);
 	if (e->m == 0)
@@ -121,7 +125,7 @@ void	ft_is_p(int *i, t_en *e)
 				e->pr < e->print ? e->print += 2 : 0;
 			}
 		}
-		while(e->pr > e->print)
+		while (e->pr > e->print)
 		{
 			e->r += write(1, "0", 1);
 			e->pr--;
@@ -134,7 +138,7 @@ void	ft_is_p(int *i, t_en *e)
 		e->pr < e->print ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
-			while(e->pr > e->print)
+			while (e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
 				e->pr--;
@@ -156,14 +160,17 @@ void	ft_is_x(int *i, t_en *e)
 {
 
 	long long int		nb;
-	char 	*tmp;
-	int test = 0;
+	char				*tmp;
+	int					test;
 
+	test = 0;
 	e->c == 0 ? nb = va_arg(e->a, long long int) : 0;
 	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
 	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, int) : 0;
-	e->c == 'l' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
-	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'l' ? nb =
+	(unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'L' ? nb =
+	(unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
 	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	if (e->c == 'L' || e->c == 'l' || e->c == 'z' || e->c == 'j')
@@ -173,40 +180,41 @@ void	ft_is_x(int *i, t_en *e)
 	e->print = ft_strlen(tmp);
 	if (e->m == 0)
 	{
-			if (e->w != 0 || e->d != 0 || e->pr > e->print)
+		if (e->w != 0 || e->d != 0 || e->pr > e->print)
+		{
+			e->s != 0 && e->z != 0 ? e->print += 1 : 0;
+			e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
+			if (e->d != 0 && (e->w <= e->print || e->w <= e->pr || e->z != 0)
+			&& nb != 0)
 			{
-				e->s != 0 && e->z != 0 ? e->print += 1 : 0;
-				e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
-				if (e->d != 0 && (e->w <= e->print || e->w <= e->pr || e->z != 0) && nb != 0)
-				{
-					e->r += write(1, "0x", 2);
-					e->pr < e->print ? e->print += 2 : 0;
-				}
-				else if (e->d != 0 && (e->w > e->print || e->w > e->pr ) && nb != 0)
-				{
-					test = 2;
-					e->w -= 2;
-				}
-				while ((e->w > e->pr) && (e->w > e->print))
-				{
-					if (e->z > 0)
-						write(1, "0", 1);
-					else
-						write(1, " ", 1);
-					--e->w;
-					e->r = e->r + 1;
-				}
-				if (test == 2)
-				{
-					e->r += write(1, "0x", 2);
-					e->pr < e->print ? e->print += 2 : 0;
-				}
+				e->r += write(1, "0x", 2);
+				e->pr < e->print ? e->print += 2 : 0;
 			}
-			while(e->pr > e->print)
+			else if (e->d != 0 && (e->w > e->print || e->w > e->pr) && nb != 0)
 			{
-				e->r += write(1, "0", 1);
-				e->pr--;
+				test = 2;
+				e->w -= 2;
 			}
+			while ((e->w > e->pr) && (e->w > e->print))
+			{
+				if (e->z > 0)
+					write(1, "0", 1);
+				else
+					write(1, " ", 1);
+				--e->w;
+				e->r = e->r + 1;
+			}
+			if (test == 2)
+			{
+				e->r += write(1, "0x", 2);
+				e->pr < e->print ? e->print += 2 : 0;
+			}
+		}
+		while (e->pr > e->print)
+		{
+			e->r += write(1, "0", 1);
+			e->pr--;
+		}
 		e->pr >= 0 || nb != 0 ? e->r += ft_putstr_minimizer(tmp) : 0;
 		nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
 	}
@@ -216,7 +224,7 @@ void	ft_is_x(int *i, t_en *e)
 		e->d > 0 && e->pr < e->print ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
-			while(e->pr > e->print)
+			while (e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
 				e->pr--;
@@ -236,16 +244,18 @@ void	ft_is_x(int *i, t_en *e)
 	*i += 1;
 }
 
-void	ft_is_X(int *i, t_en *e)
+void	ft_is_x2(int *i, t_en *e)
 {
-	long long int		nb;
-	char 	*tmp;
+	long long int	nb;
+	char			*tmp;
 
 	e->c == 0 ? nb = va_arg(e->a, int) : 0;
 	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
 	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, int) : 0;
-	e->c == 'l' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
-	e->c == 'L' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'l' ? nb =
+	(unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
+	e->c == 'L' ? nb =
+	(unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
 	e->c == 'j' ? nb = (uintmax_t)va_arg(e->a, uintmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	if (e->c == 'L' || e->c == 'l' || e->c == 'z' || e->c == 'j')
@@ -273,13 +283,13 @@ void	ft_is_X(int *i, t_en *e)
 			}
 			if (e->d != 0 && e->w <= 0 && e->pr > e->print)
 				e->print -= 2;
-			while(e->pr > e->print)
+			while (e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
 				e->pr--;
 			}
 		}
-		e->pr >= 0 || nb != 0? e->r += ft_putstr_capitalizer(tmp) : 0;
+		e->pr >= 0 || nb != 0 ? e->r += ft_putstr_capitalizer(tmp) : 0;
 		nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
 	}
 	else
@@ -288,7 +298,7 @@ void	ft_is_X(int *i, t_en *e)
 		e->d > 0 && e->z == 0 ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
-			while(e->pr > e->print)
+			while (e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
 				e->pr--;
@@ -309,7 +319,7 @@ void	ft_is_X(int *i, t_en *e)
 }
 void	ft_is_invalid(char *f, int *i, t_en *e)
 {
-	int i1;
+	int	i1;
 
 	if (e->m == 0)
 	{

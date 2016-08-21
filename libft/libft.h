@@ -49,7 +49,7 @@ int					ft_putchar(char c);
 int					ft_putstr(char const *s);
 int					ft_putendl(char const *s);
 void				ft_putnbr(int n);
-void 				ft_nbrendl(int n);
+void				ft_nbrendl(int n);
 int					ft_putchar_fd(char c, int fd);
 int					ft_putstr_fd(char const *s, int fd);
 int					ft_putendl_fd(char const *s, int fd);
@@ -107,6 +107,5 @@ void				*ft_memnew(size_t size);
 void				ft_putlongnbr(long long int c);
 void				ft_putunsignedlongnbr(unsigned long long c);
 int					ft_uintlen(unsigned long long int n);
-
 
 #endif

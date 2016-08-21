@@ -10,12 +10,10 @@ void	ft_check_flag(char *f, int *i, t_en *e)
 		f[*i] == ' ' ? e->s++ : 0;
 		f[*i] == '0' ? e->z++ : 0;
 		f[*i] == '#' ? e->d++ : 0;
-
 		*i = *i + 1;
 	}
 	e->m != 0 && e->z != 0 ? e->z = 0 : 0;
 	(e->p != 0) && (e->s != 0) ? e->s = 0 : 0;
-
 }
 
 void	ft_check_width(char *f, int *i, t_en *e)
@@ -46,11 +44,10 @@ void	ft_check_modify_type(char *f, int *i, t_en *e)
 	f[*i] == 'z' ? e->c = 'z' : 0;
 	f[*i] == 'l' ? e->c = 'l' : 0;
 	f[*i] == 'h' ? e->c = 'h' : 0;
-	f[*i] == 'h' && f[*i + 1]  == 'h' ? e->c = 'H' : 0;
-	f[*i] == 'l' && f[*i + 1]  == 'l' ? e->c = 'L' : 0;
+	f[*i] == 'h' && f[*i + 1] == 'h' ? e->c = 'H' : 0;
+	f[*i] == 'l' && f[*i + 1] == 'l' ? e->c = 'L' : 0;
 	e->c == 'H' || e->c == 'L' ? *i += 2 : 0;
 	e->c == 'j' || e->c == 'z' || e->c == 'l' || e->c == 'h' ? ++*i : 0;
-
 }
 
 void	ft_check_specifier(char *f, int *i, t_en *e)
