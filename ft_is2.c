@@ -58,15 +58,31 @@ void	ft_is_o(int *i, t_en *e)
 
 
 		e->r += ft_putstr(tmp);
-		*i = *i + 1;
 	}
 	else
 	{
-		e->r += ft_putstr(ft_uitoa_base(nb, 8));
-		(e->w != 0 || e->d != 0 || e->pr > e->print) && nb != 0 ? ft_print_w(e, 1) : 0;
-		*i = *i + 1;
+		e->d > 0 && e->z == 0 ? e->r += write(1, "0", 1) : 0;
+		e->d > 0 && e->z == 0 ? e->print += 1 : 0;
+		if (e->pr > e->print)
+		{
+			while(e->pr > e->print)
+			{
+				e->r += write(1, "0", 1);
+				e->pr--;
+			}
+		}
+		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
+		e->r += ft_putstr(tmp);
+		while (e->w > e->print || e->z > 0)
+		{
+			e->z > 0 ? write(1, "0", 1) : 0;
+			e->z == 0 ? write(1, " ", 1) : 0;
+			--e->w;
+			e->r = e->r + 1;
+		}
 	}
-	ft_ini(e);
+	*i = *i + 1;
+
 }
 
 void	ft_is_p(int *i, t_en *e)
@@ -176,6 +192,7 @@ void	ft_is_x(int *i, t_en *e)
 	else
 	{
 		e->d > 0 && e->z == 0 ? e->r += write(1, "0x", 2) : 0;
+		e->d > 0 && e->z == 0 ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
 			while(e->pr > e->print)
@@ -234,6 +251,8 @@ void	ft_is_X(int *i, t_en *e)
 				--e->w;
 				e->r = e->r + 1;
 			}
+			if (e->d != 0 && e->w <= 0 && e->pr > e->print)
+				e->print -= 2;
 			while(e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
@@ -248,6 +267,7 @@ void	ft_is_X(int *i, t_en *e)
 	else
 	{
 		e->d > 0 && e->z == 0 ? e->r += write(1, "0X", 2) : 0;
+		e->d > 0 && e->z == 0 ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
 			while(e->pr > e->print)
