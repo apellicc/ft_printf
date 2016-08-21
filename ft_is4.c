@@ -3,14 +3,12 @@ int		ft_wcharlen(wchar_t value)
 {
 	int i;
 	i = 0;
-	//	unsigned int mask0 = 0;
 	unsigned int mask1 = 49280;
 	unsigned int mask2= 14712960;
 	unsigned int mask3= 4034953344;
 	unsigned int v = value;
 
 	int size = ft_strlen(ft_uitoa_base(value, 2));
-	//ft_nbrendl(size);
 	unsigned char octet;
 
 	if (size <= 7)
@@ -83,18 +81,14 @@ int		ft_putswchar(wchar_t *value)
 }
 int		ft_putwchar(wchar_t value)
 {
-
-	//	ft_putendl("kil");
 	int i;
 	i = 0;
-	//	unsigned int mask0 = 0;
 	unsigned int mask1 = 49280;
 	unsigned int mask2= 14712960;
 	unsigned int mask3= 4034953344;
 	unsigned int v = value;
 
 	int size = ft_strlen(ft_uitoa_base(value, 2));
-	//ft_nbrendl(size);
 	unsigned char octet;
 
 	if (size <= 7)
@@ -149,7 +143,6 @@ void	ft_is_C(int *i, t_en *e)
 
 	value = va_arg(e->a, wchar_t);
 	 e->r += ft_putwchar(value);
-	//ft_nbrendl(e->r);
 	*i += 1;
 }
 void  ft_is_S(int *i, t_en *e)
@@ -159,37 +152,24 @@ void  ft_is_S(int *i, t_en *e)
 	value = NULL;
 	int tmp;
 	int  t = 0;
-	//ft_putendl("ici s");
 	value = va_arg(e->a, wchar_t *);
 	if (e->m == 0)
 	{
 		if (!value)
 		{
 			e->s = 0;
-			//		ft_putendl("je suis ici");
-			//	e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 			e->r += ft_putstr("(null)");
 		}
-		// else
-		// 	e->r += ft_putswchar(value);
 		else
 		{
 			tmp = ft_swcharlen(value);
 			e->print += tmp;
-
-			//e->r += e->print;
 			e->w != 0 || (e->pr > e->print) ? ft_print_w(e, 1) : 0;
-			// ft_nbrendl(e->w);
-			// ft_nbrendl(e->pr);
-			// ft_nbrendl(e->print);
-			//ft_putendl("ici");
 			if (e->pr < tmp && e->pr > 0)
 			{
 				tmp = ft_wcharlen(value[t]);
 				while (e->pr >= tmp)
 				{
-					//ft_nbrendl(e->r);
-					// ft_nbrendl(printf("%lc", L'我'));
 					value[t + 1] ? test = ft_wcharlen(value[t + 1]) : 0;
 					if (test < e->pr && (e->w >= e->pr))
 					{
@@ -199,18 +179,11 @@ void  ft_is_S(int *i, t_en *e)
 							e->pr--;
 						}
 					}
-					// ((e->pr - tmp) >= 0)
 					 e->r += ft_putwchar(value[t]);
 					((e->pr - tmp) >= 0) ? e->pr -= tmp : 0;
 					t++;
-					//ft_nbrendl(e->r);
 					tmp = ft_wcharlen(value[t]);
-					//(ft_wcharlen(value[t]) > e->pr)? e->r += e->pr : 0;
-
 				}
-				//e->r += ft_putswchar(value);
-
-				//ft_putendl("ici");
 			}
 			else
 			e->pr >= 0 ? e->r += ft_putswchar(value) : 0;
@@ -220,22 +193,11 @@ void  ft_is_S(int *i, t_en *e)
 	}
 	else
 	{
-		//ft_putendl("ici s2 ");
 		tmp = ft_swcharlen(value);
-		//ft_putendl("ici s3");
 		ft_putswchar(value);
 		e->print = tmp;
 		e->r += tmp;
 		e->w > tmp ? ft_nprint_w(e, tmp) : 0;
 		*i = *i + 1;
 	}
-	//ft_putendl("lol");
-	// while (value != NULL && value[t])
-	// {
-	// 	//ft_putendl("uxux");
-	// 	e->r += ft_putwchar(value[t]);
-	// 	t++;
-
 }
-// 	ft_putendl("ici");
-// *i += 1;

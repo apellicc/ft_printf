@@ -5,6 +5,7 @@ void	ft_is_o(int *i, t_en *e)
 	unsigned long long int nb;
 	int test = 0;
 	char *tmp;
+
 	e->c == 0 ? nb = va_arg(e->a, unsigned int) : 0;
 	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, unsigned int) : 0;
 	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, unsigned int) : 0;
@@ -52,7 +53,6 @@ void	ft_is_o(int *i, t_en *e)
 		}
 	e->pr >= 0 || nb != 0 ? e->r += ft_putstr(tmp) : 0;
 	nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
-
 	}
 	else
 	{
@@ -79,7 +79,6 @@ void	ft_is_o(int *i, t_en *e)
 		}
 	}
 	*i = *i + 1;
-
 }
 
 void	ft_is_p(int *i, t_en *e)
@@ -143,8 +142,6 @@ void	ft_is_p(int *i, t_en *e)
 		}
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
 		e->pr >= 0 ? e->r += ft_putstr(tmp) : 0;
-
-//		v != 0 && (e->pr >= 0 || e->pr == -2)? e->r += ft_putstr(tmp) : 0;
 		while (e->w > e->print || e->z > 0)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
@@ -212,7 +209,6 @@ void	ft_is_x(int *i, t_en *e)
 			}
 		e->pr >= 0 || nb != 0 ? e->r += ft_putstr_minimizer(tmp) : 0;
 		nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
-
 	}
 	else
 	{
@@ -285,7 +281,6 @@ void	ft_is_X(int *i, t_en *e)
 		}
 		e->pr >= 0 || nb != 0? e->r += ft_putstr_capitalizer(tmp) : 0;
 		nb == 0 && e->w > 0 && e->z == 0 ? e->r += ft_putchar(' ') : 0;
-
 	}
 	else
 	{
