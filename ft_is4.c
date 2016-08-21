@@ -155,7 +155,7 @@ void	ft_is_C(int *i, t_en *e)
 void  ft_is_S(int *i, t_en *e)
 {
 	wchar_t *value;
-
+	int test = 0;
 	value = NULL;
 	int tmp;
 	int  t = 0;
@@ -176,6 +176,7 @@ void  ft_is_S(int *i, t_en *e)
 		{
 			tmp = ft_swcharlen(value);
 			e->print += tmp;
+
 			//e->r += e->print;
 			e->w != 0 || (e->pr > e->print) ? ft_print_w(e, 1) : 0;
 			// ft_nbrendl(e->w);
@@ -185,10 +186,20 @@ void  ft_is_S(int *i, t_en *e)
 			if (e->pr < tmp && e->pr > 0)
 			{
 				tmp = ft_wcharlen(value[t]);
-				while (e->pr > tmp)
+				while (e->pr >= tmp)
 				{
 					//ft_nbrendl(e->r);
-					//ft_nbrendl(printf("%lc", L'我'));
+					// ft_nbrendl(printf("%lc", L'我'));
+					value[t + 1] ? test = ft_wcharlen(value[t + 1]) : 0;
+					if (test < e->pr && (e->w >= e->pr))
+					{
+						while ((e->pr - test) != 0)
+						{
+							e->r += ft_putchar(' ');
+							e->pr--;
+						}
+					}
+					// ((e->pr - tmp) >= 0)
 					 e->r += ft_putwchar(value[t]);
 					((e->pr - tmp) >= 0) ? e->pr -= tmp : 0;
 					t++;
