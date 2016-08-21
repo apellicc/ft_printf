@@ -56,6 +56,7 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	 	e->f == 'p' ? ft_is_p(i, e) : 0;
 	 	e->f == 'x' ? ft_is_x(i, e) : 0;
 	 	e->f == 'X' ? ft_is_X(i, e) : 0;
+		//ft_putendl("ici2");
 	 	e->f == 's' ? ft_is_s(i, e) : 0;
 	 	e->f == 'c' ? ft_is_c(i, e) : 0;
 		e->f == 'C' ? ft_is_C(i, e) : 0;
@@ -81,7 +82,6 @@ void	ft_check(char *f, int *i, t_en *e)
 	//ft_putendl("ici");
 	//(e->pr >= 0) || (e->w > 0) || (e->f == '%') ? ft_select_print(f, i, e) : 0;
 	ft_select_print(f, i, e);
-	//ft_putendl("ici2");
 	//((e->pr < 0) || (e->w <= 0)) && (e->f == 'c' && e->c != 'l') ? e->r++ : 0;
 	//ft_putendl("ici3");
 	ft_ini(e);

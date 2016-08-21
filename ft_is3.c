@@ -8,50 +8,136 @@ void	ft_is_s(int *i, t_en *e)
 	char *str;
 	int tmp;
 
-	//ft_putendl("dans s");
+
 	if (e->c != 'l')
 	{
-		// ft_putendl("je suis ici");
 		str = va_arg(e->a, char *);
-		//e->print = ft_strlen(str);
-		//e->s = 0;
-		//e->print = ft_strlen(str);
-		//e->r += e->print;
+		// ft_putendl("ici3");
+
+		str ? tmp = ft_strlen(str) : 0;
+		//ft_printf("%d valeur e->pr\n", e->pr);
+		e->pr == 0 ? e->pr = tmp + e->w : 0;
+		//ft_printf("%d valeur e->pr\n", e->pr);
+
 		if (e->m == 0)
 		{
+			// ft_putendl("ici4");
+
 			!str || str[0] == '\0' || (ft_strcmp(str, "(null)") == 0) ? e->s = 0 : 0;
 			if (e->s != 0)
 			{
 				e->print++;
 				e->r += ft_putchar(' ');
-				*i = *i + 1;
+				e->pr++;
+				//*i = *i + 1;
 			}
 			if (!str)
 			{
-				e->s = 0;
-				//		ft_putendl("je suis ici");
+				//e->s = 0;
 				e->print += 6;
-				e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
-
+				if (e->w != 0 || e->pr > e->print)
+				{
+					if ((e->w > e->pr) && (e->pr < e->print) && (e->pr != 0))
+						e->print = e->pr;
+					else if ((e->pr > e->print))
+							e->pr = e->print;
+					tmp = e->pr;
+					e->s != 0 && e->z != 0 ? e->print += 1 : 0;
+					e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
+					if (e->w > e->pr)
+					{
+						(e->pr > e->print) ? e->w-- : 0;
+						e->pr < 0 ? e->print = 0 : 0;
+						while ((e->w > e->pr) && (e->w > e->print))
+						{
+							if (e->z > 0)
+								write(1, "0", 1);
+							else
+								write(1, " ", 1);
+							--e->w;
+							e->r = e->r + 1;
+						}
+					}
+				}
 				e->pr >= 0 ? e->r += ft_putstr("(null)") : 0;
 			}
 			else
 			{
-				tmp = ft_strlen(str);
+				//  ft_putendl("ici5");
+
 				e->print += tmp;
-				//e->r += e->print;
-				e->w != 0 || (e->pr > e->print)? ft_print_w(e, 1) : 0;
-				// ft_nbrendl(e->w);
-				// ft_nbrendl(e->pr);
-				// ft_nbrendl(e->print);
-				//ft_putendl("ici");
-				e->pr < tmp && e->pr != 0 ? e->r += write(1, str, e->pr) : 0;
-				e->pr >= tmp || e->pr == 0 ? e->r += ft_putstr(str) : 0;
-				//ft_putendl("ici");
+				tmp = e->pr;
+			//	ft_printf("%d valeur e->pr\n", e->pr);
+				if (e->w != 0 || e->pr > e->print)
+				{
+				//	tmp = e->pr;
+					if ((e->w > e->pr) && (e->pr < e->print) && (e->pr != 0))
+						e->print = e->pr;
+					else if (e->pr > e->print && e->w < e->pr)
+							e->pr = e->print;
+					e->s != 0 && e->z != 0 ? e->print += 1 : 0;
+					//e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
+					//(tmp < e->pr) ? (tmp = e->pr) : 0;
+					tmp = e->pr;
+					if (e->w > e->pr)
+					{
+						// ft_printf("%d valeur e->pr\n", e->pr);
+						// ft_printf("%d valeur tmp\n", tmp);
+						// ft_printf("%d valeur e->w\n", e->w);
+
+						//(e->pr > e->print) ? e->w-- : 0;
+						e->pr < 0 ? e->print = 0 : 0;
+						while ((e->w > tmp) && (e->w > e->print))
+						{
+							if (e->z > 0)
+								write(1, "0", 1);
+							else
+								write(1, " ", 1);
+							--e->w;
+							tmp--;
+							e->r = e->r + 1;
+						}
+					}
+					//ft_putendl("ici6");
+
+					// e->pr < tmp && e->pr != 0 ? e->r += write(1, str, e->pr) : 0;
+					// e->pr >= tmp || e->pr != 0 ? e->r += ft_putstr(str) : 0;
+				}
+			//	 ft_nbrendl(e->pr);
+				 //ft_nbrendl(test);
+			//	 ft_nbrendl(tmp);
+			//	 ft_nbrendl(e->print);
+			// ft_printf("%d valeur e->pr\n", e->pr);
+			// ft_printf("%d valeur tmp\n", tmp);
+			// ft_printf("%d valeur e->w\n", e->w);
+			// ft_printf("%d valeur e->print\n", e->print);
+			// ft_printf("%d valeur e->r\n", e->r);
+
+				if (e->pr >= 0 && e->pr <= e->print)
+				 	e->r += write(1, str, e->pr);
+				else if (e->pr >= 0 && e->pr > e->print)
+					e->r += ft_putstr(str);
 			}
-			e->pr >= 0 ? *i = *i + 1 : e->r++;
-			ft_ini(e);
 		}
+		else
+		{
+			e->pr < tmp && e->pr >= 0 ? e->r += write(1, str, e->pr) : 0;
+			e->pr >= tmp && e->pr >= 0 ? e->r += ft_putstr(str) : 0;
+
+			if ((e->w > e->pr) && (e->pr < e->print) && (e->pr != 0))
+				e->print = e->pr;
+			else if (e->pr > e->print)
+				e->pr = e->print;
+			while (e->w > e->print)
+			{
+				e->z > 0 ? write(1, "0", 1) : 0;
+				e->z == 0 ? write(1, " ", 1) : 0;
+				--e->w;
+				e->r = e->r + 1;
+			}
+		}
+		*i = *i + 1;
+		ft_ini(e);
 	}
 	e->c == 'l' ? ft_is_S(i, e) : 0;
 }
@@ -107,7 +193,6 @@ void	ft_is_c(int *i, t_en *e)
 			}
 		}
 		*i = *i + 1;
-
 	}
 	e->c == 'l' ? ft_is_C(i, e) : 0;
 }
