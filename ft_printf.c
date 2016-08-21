@@ -82,7 +82,7 @@ void	ft_check(char *f, int *i, t_en *e)
 	//(e->pr >= 0) || (e->w > 0) || (e->f == '%') ? ft_select_print(f, i, e) : 0;
 	ft_select_print(f, i, e);
 	//ft_putendl("ici2");
-	((e->pr < 0) || (e->w <= 0)) && (e->f == 'c' && e->c != 'l') ? e->r++ : 0;
+	//((e->pr < 0) || (e->w <= 0)) && (e->f == 'c' && e->c != 'l') ? e->r++ : 0;
 	//ft_putendl("ici3");
 	ft_ini(e);
 }

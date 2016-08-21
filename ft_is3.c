@@ -59,26 +59,57 @@ void	ft_is_s(int *i, t_en *e)
 void	ft_is_c(int *i, t_en *e)
 {
 	char c;
-	//  ft_putendl("icoi");
+	e->p != 0 ? e->p = 0 : 0;
+	e->d != 0 ? e->d = 0 : 0;
+	e->s != 0 ? e->s = 0 : 0;
 	if (e->c != 'l')
 	{
 		c = va_arg(e->a, int);
-		// ft_putendl("ic");
 		c == 0 && e->pr < 0 ? e->r++ : 0;
 		e->print = 1;
 		if (e->m == 0)
 		{
-			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
+			if (e->w != 0 || c != 0)
+			{
+				if (e->w > e->pr)
+				{
+					while ((e->w > e->pr) && (e->w > e->print))
+					{
+						if (e->z > 0)
+							write(1, "0", 1);
+						else
+							write(1, " ", 1);
+						--e->w;
+						e->r = e->r + 1;
+					}
+				}
+			}
 			e->pr >= 0 ? e->r += ft_putchar(c) : 0;
-			//ft_nbrendl(e->r);
-			*i = *i + 1;
 		}
-		ft_ini(e);
+		else
+		{
+			e->pr >= 0 ? e->r += ft_putchar(c) : 0;
+			if (e->w != 0 || c != 0)
+			{
+				if (e->w > e->pr)
+				{
+					e->w--;
+					while ((e->w > e->pr) && (e->w > e->print))
+					{
+						if (e->z > 0)
+							write(1, "0", 1);
+						else
+							write(1, " ", 1);
+						--e->w;
+						e->r = e->r + 1;
+					}
+				}
+			}
+		}
+		*i = *i + 1;
+
 	}
-	//ft_nbrendl(e->r);
 	e->c == 'l' ? ft_is_C(i, e) : 0;
-//	ft_putendl("ekek");
-//		ft_nbrendl(e->r);
 }
 
 void	ft_is_percent(int *i, t_en *e)

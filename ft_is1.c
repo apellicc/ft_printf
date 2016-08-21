@@ -88,7 +88,7 @@ void	ft_is_d(int *i, t_en *e)
 		}
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
 		e->pr >= 0 ? ft_putunsignedlongnbr(nb) : 0;
-		while (e->w > e->print || e->z > 0)
+		while (e->w > e->print)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
 			e->z == 0 ? write(1, " ", 1) : 0;
