@@ -89,46 +89,91 @@ void	ft_is_p(int *i, t_en *e)
 {
 	long long int	v;
 	char *tmp;
-
+	int test = 0;
 	v = va_arg(e->a, long long int);
 	tmp = ft_uitoa_base(v, 16);
-	e->print = ft_strlen(tmp) + 2;
+	e->print = ft_strlen(tmp);
 	if (e->m == 0)
 	{
-		if (e->pr > e->w || (e->z != 0))
+		if (e->w >= 0 || e->pr > e->print)
 		{
-			e->z != 0 ? e->print -= 1 : 0;
-			e->r += ft_putstr("0x");
-			//e->print -= 2;
-			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
-			*tmp != '0' ? e->r += ft_putstr(tmp) : 0;
+			//ft_putendl("lele");
+			e->s != 0 && e->z != 0 ? e->print += 1 : 0;
+			e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
+			if ((e->w <= e->print || e->w <= e->pr || e->z != 0))
+			{
+			//	ft_putendl("je sis ici");
+				e->r += write(1, "0x", 2);
+				e->pr < e->print ? e->print += 2 : 0;
+			}
+			else if (e->w > e->print || e->w > e->pr)
+			{
+				test = 2;
+				e->w -= 2;
+			}
+			while ((e->w > e->pr) && (e->w > e->print))
+			{
+			//ft_nbrendl(e->w);
+			//ft_nbrendl(e->print);
+				if (e->z > 0)
+					write(1, "0", 1);
+				else
+					write(1, " ", 1);
+				--e->w;
+				e->r = e->r + 1;
+			//	ft_putendl("je mets des 0");
+			}
+			if (test == 2)
+			{
+				e->r += write(1, "0x", 2);
+				e->pr < e->print ? e->print += 2 : 0;
+			}
+		}
+		while(e->pr > e->print)
+		{
+			e->r += write(1, "0", 1);
+			e->pr--;
+			//ft_putendl("je mets des 023");
 
 		}
-		else
-		{
-			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
-			e->r += ft_putstr("0x");
-			e->r += ft_putstr(tmp);
-		}
-		*i = *i + 1;
+
+//e->d > 0 && e->z != 0 ? e->r += write(1, "0x", 2) : 0;
+
+		e->r += ft_putstr(tmp);
 	}
 	else
 	{
-		e->r += ft_putstr("0x");
-		e->r += ft_putstr(tmp);
-		e->w != 0 ? ft_nprint_w(e, 1) : 0;
-		*i = *i + 1;
-	}
-	ft_ini(e);
-}
+		e->r += write(1, "0x", 2);
+		e->pr < e->print ? e->print += 2 : 0;
+		if (e->pr > e->print)
+		{
+			while(e->pr > e->print)
+			{
+				e->r += write(1, "0", 1);
+				e->pr--;
+			}
+		}
+		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
 
+		e->r += ft_putstr(tmp);
+		while (e->w > e->print || e->z > 0)
+		{
+			e->z > 0 ? write(1, "0", 1) : 0;
+			e->z == 0 ? write(1, " ", 1) : 0;
+			--e->w;
+			e->r = e->r + 1;
+		}
+	}
+	*i += 1;
+}
 void	ft_is_x(int *i, t_en *e)
 {
+
 	long long int		nb;
 	char 	*tmp;
 	int test = 0;
 
-	e->c == 0 ? nb = va_arg(e->a, int) : 0;
+	e->c == 0 ? nb = va_arg(e->a, long long int) : 0;
 	e->c == 'H' ? nb = (unsigned char)va_arg(e->a, int) : 0;
 	e->c == 'h' ? nb = (unsigned short int)va_arg(e->a, int) : 0;
 	e->c == 'l' ? nb = (unsigned long long int)va_arg(e->a, unsigned long long int) : 0;
@@ -141,6 +186,8 @@ void	ft_is_x(int *i, t_en *e)
 		tmp = ft_itoa_base(nb, 16);
 	e->print = ft_strlen(tmp);
 	//ft_nbrendl(e->print);
+	//ft_nbrendl(e->pr);
+	//e->pr > e->print ? e->pr += 1 : 0;
 	if (e->m == 0)
 	{
 		// if (e->w > e->pr)
@@ -151,8 +198,9 @@ void	ft_is_x(int *i, t_en *e)
 				e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
 				if (e->d != 0 && (e->w <= e->print || e->w <= e->pr || e->z != 0) && nb != 0)
 				{
+				//	ft_putendl("je sis ici");
 					e->r += write(1, "0x", 2);
-					e->print += 2;
+					e->pr < e->print ? e->print += 2 : 0;
 				}
 				else if (e->d != 0 && (e->w > e->print || e->w > e->pr ) && nb != 0)
 				{
@@ -169,19 +217,20 @@ void	ft_is_x(int *i, t_en *e)
 						write(1, " ", 1);
 					--e->w;
 					e->r = e->r + 1;
+				//	ft_putendl("je mets des 0");
 				}
 				if (test == 2)
 				{
 					e->r += write(1, "0x", 2);
-					e->print += 2;
+					e->pr < e->print ? e->print += 2 : 0;
 				}
 			}
-			if (e->d != 0 && e->w <= 0 && e->pr > e->print)
-				e->print -= 2;
 			while(e->pr > e->print)
 			{
 				e->r += write(1, "0", 1);
 				e->pr--;
+				//ft_putendl("je mets des 023");
+
 			}
 
 		//}
@@ -192,7 +241,6 @@ void	ft_is_x(int *i, t_en *e)
 	else
 	{
 		e->d > 0 && e->z == 0 ? e->r += write(1, "0x", 2) : 0;
-		e->d > 0 && e->z == 0 ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
 			while(e->pr > e->print)

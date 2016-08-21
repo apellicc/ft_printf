@@ -30,17 +30,29 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	// ft_putendl("jejkek");
 	// 	ft_putchar(e->c);
 		//ft_putendl("ici select");
-		e->f == 'D' || e->f == 'U' ? e->c = 'L' : 0;
+		e->f == 'D' || e->f == 'U' || e->f == 'O' ? e->c = 'L' : 0;
 		e->f == 'D' ? e->f = 'd' : 0;
 		e->f == 'U' ? e->f = 'u' : 0;
-
+		e->f == 'O' ? e->f = 'o' : 0;
+		// if (e->f == 'p')
+		// {
+		// 	//ft_nbrendl(e->z);
+		// 	//ft_ini(e);
+		// 	e->z = 0;
+		// 	e->c = 'l';
+		// 	//e->w > 0 ? e->z = 0 : 0;
+		// 	//e->print -= 2;
+		// 	//e->z != 0 ? e->print += 2 : 0;
+		// 	e->f = 'x';
+		// 	e->d = 1;
+		// }
 
 		e->f == 'v' ? ft_is_invalid(f, i, e) : 0;
 		e->f == 'd' || e->f == 'i' ? ft_is_d(i, e) : 0;
 	 	//e->f == 'D' ? ft_is_D(i, e) : 0;
 	 	e->f == 'u' ? ft_is_u(i, e) : 0;
 	 	e->f == 'o' ? ft_is_o(i, e) : 0;
-	 	e->f == 'O' ? ft_is_O(i, e) : 0;
+		// 	e->f == 'O' ? ft_is_O(i, e) : 0;
 	 	e->f == 'p' ? ft_is_p(i, e) : 0;
 	 	e->f == 'x' ? ft_is_x(i, e) : 0;
 	 	e->f == 'X' ? ft_is_X(i, e) : 0;
