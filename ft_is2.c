@@ -56,8 +56,9 @@ void	ft_is_o(int *i, t_en *e)
 	//}
 	//e->d > 0 && e->z != 0 ? e->r += write(1, "0x", 2) : 0;
 
+	e->pr >= 0 ? e->r += ft_putstr(tmp) : 0;
 
-		e->r += ft_putstr(tmp);
+//		e->r += ft_putstr(tmp);
 	}
 	else
 	{
@@ -72,7 +73,8 @@ void	ft_is_o(int *i, t_en *e)
 			}
 		}
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
-		e->r += ft_putstr(tmp);
+		e->pr >= 0 ? e->r += ft_putstr(tmp) : 0;
+//e->r += ft_putstr(tmp);
 		while (e->w > e->print || e->z > 0)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
@@ -91,8 +93,11 @@ void	ft_is_p(int *i, t_en *e)
 	char *tmp;
 	int test = 0;
 	v = va_arg(e->a, long long int);
+//v == 0 ? e->pr = 0 : 0;
+
 	tmp = ft_uitoa_base(v, 16);
 	e->print = ft_strlen(tmp);
+	//ft_putendl("ici");
 	if (e->m == 0)
 	{
 		if (e->w >= 0 || e->pr > e->print)
@@ -100,7 +105,7 @@ void	ft_is_p(int *i, t_en *e)
 			//ft_putendl("lele");
 			e->s != 0 && e->z != 0 ? e->print += 1 : 0;
 			e->z != 0 && e->w > (e->print - e->pr) && e->pr > 0 ? e->z = 0 : 0;
-			if ((e->w <= e->print || e->w <= e->pr || e->z != 0))
+			if (e->w <= e->print || e->w <= e->pr || e->z != 0)
 			{
 			//	ft_putendl("je sis ici");
 				e->r += write(1, "0x", 2);
@@ -138,8 +143,11 @@ void	ft_is_p(int *i, t_en *e)
 		}
 
 //e->d > 0 && e->z != 0 ? e->r += write(1, "0x", 2) : 0;
-
-		e->r += ft_putstr(tmp);
+		//ft_nbrendl(v);
+		// if (v != 0)
+		// 	e->r += ft_putstr(tmp);
+		e->pr >= 0 ? e->r += ft_putstr(tmp) : 0;
+		//v != 0 && (e->pr >= 0 || e->pr == -2) ? e->r += ft_putstr(tmp) : 0;
 	}
 	else
 	{
@@ -154,8 +162,9 @@ void	ft_is_p(int *i, t_en *e)
 			}
 		}
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
+		e->pr >= 0 ? e->r += ft_putstr(tmp) : 0;
 
-		e->r += ft_putstr(tmp);
+//		v != 0 && (e->pr >= 0 || e->pr == -2)? e->r += ft_putstr(tmp) : 0;
 		while (e->w > e->print || e->z > 0)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
@@ -235,12 +244,14 @@ void	ft_is_x(int *i, t_en *e)
 
 		//}
 		//e->d > 0 && e->z != 0 ? e->r += write(1, "0x", 2) : 0;
+		e->pr >= 0 ? e->r += ft_putstr_minimizer(tmp) : 0;
 
-		e->r += ft_putstr_minimizer(tmp);
+	//	e->r += ft_putstr_minimizer(tmp);
 	}
 	else
 	{
 		e->d > 0 && e->z == 0 ? e->r += write(1, "0x", 2) : 0;
+		e->d > 0 && e->pr < e->print ? e->print += 2 : 0;
 		if (e->pr > e->print)
 		{
 			while(e->pr > e->print)
@@ -250,7 +261,9 @@ void	ft_is_x(int *i, t_en *e)
 			}
 		}
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
-		e->r += ft_putstr_minimizer(tmp);
+		e->pr >= 0 ? e->r += ft_putstr_minimizer(tmp) : 0;
+
+//		e->r += ft_putstr_minimizer(tmp);
 		while (e->w > e->print || e->z > 0)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
@@ -309,8 +322,9 @@ void	ft_is_X(int *i, t_en *e)
 
 		}
 		//e->d > 0 && e->z != 0 ? e->r += write(1, "0x", 2) : 0;
+		e->pr >= 0 ? e->r += ft_putstr_capitalizer(tmp) : 0;
 
-		e->r += ft_putstr_capitalizer(tmp);
+	//	e->r += ft_putstr_capitalizer(tmp);
 	}
 	else
 	{
@@ -325,7 +339,7 @@ void	ft_is_X(int *i, t_en *e)
 			}
 		}
 		e->w > e->pr && e->w > e->print && e->pr > 0 ? e->print++ : 0;
-		e->r += ft_putstr_capitalizer(tmp);
+		e->pr >= 0 ? e->r += ft_putstr_capitalizer(tmp) : 0;
 		while (e->w > e->print || e->z > 0)
 		{
 			e->z > 0 ? write(1, "0", 1) : 0;
@@ -351,12 +365,12 @@ void	ft_is_invalid(char *f, int *i, t_en *e)
 		// ft_putendl(f);
 		// ft_putchar(f[*i]);
 		// ft_putendl("lele");
-		e->r += ft_putchar(f[*i]);
+		e->pr >= 0 ? e->r += ft_putchar(f[*i]) : 0;
 		*i = *i + 1;
 	}
 	else
 	{
-		e->r += ft_putchar(f[*i]);
+		e->pr >= 0 ? e->r += ft_putchar(f[*i]) : 0;
 		e->r += (e->w > 0 ? e->w - 1 : e->w);
 		while (--e->w > 0)
 			e->z > 0 ? write(1, "0", 1) : write(1, " ", 1);

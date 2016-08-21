@@ -50,7 +50,7 @@ void	ft_check_precision(char *f, int *i, t_en *e)
 	//	ft_putendl("dans -2");
 		e->pr = -2;
 	}
-	else if (f[*i] == '.')
+	else //if (f[*i] == '.')
 	{
 		//ft_putendl("dans -1");
 		e->pr = -1;

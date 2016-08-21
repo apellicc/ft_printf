@@ -33,7 +33,7 @@ void	ft_is_s(int *i, t_en *e)
 				e->print += 6;
 				e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
 
-				e->r += ft_putstr("(null)");
+				e->pr >= 0 ? e->r += ft_putstr("(null)") : 0;
 			}
 			else
 			{
@@ -69,7 +69,7 @@ void	ft_is_c(int *i, t_en *e)
 		if (e->m == 0)
 		{
 			e->w != 0 || e->pr > e->print ? ft_print_w(e, 1) : 0;
-			e->r += ft_putchar(c);
+			e->pr >= 0 ? e->r += ft_putchar(c) : 0;
 			//ft_nbrendl(e->r);
 			*i = *i + 1;
 		}

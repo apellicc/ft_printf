@@ -72,13 +72,15 @@ void	ft_check(char *f, int *i, t_en *e)
 	(ft_strchr("hljz", f[*i])) ? ft_check_modify_type(f, i, e) : 0;
 
 	ft_check_specifier(f, i, e);
+	//ft_putendl(&e->f);
 	// (e->f == 's' || e->f == 'S' || e->f == 'p' || e->f == 'c' || e->f == 'C') ?
 	// e->c = 0 : 0;
 	e->f == 'p' ? e->c = 0 : 0;
 	((e->f == 'o' || e->f == 'O') && e->d > 0 && e->pr < 0) ? e->pr = 0 : 0;
-	e->pr < 0 && e->f != '%' ? *i += 1 : 0;
+	//e->pr < 0 && e->f != '%' ? *i += 1 : 0;
 	//ft_putendl("ici");
-	(e->pr >= 0) || (e->w > 0) || (e->f =='%') ? ft_select_print(f, i, e) : 0;
+	//(e->pr >= 0) || (e->w > 0) || (e->f == '%') ? ft_select_print(f, i, e) : 0;
+	ft_select_print(f, i, e);
 	//ft_putendl("ici2");
 	((e->pr < 0) || (e->w <= 0)) && (e->f == 'c' && e->c != 'l') ? e->r++ : 0;
 	//ft_putendl("ici3");
