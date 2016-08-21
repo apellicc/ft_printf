@@ -148,11 +148,11 @@ void	ft_is_c(int *i, t_en *e)
 	e->p != 0 ? e->p = 0 : 0;
 	e->d != 0 ? e->d = 0 : 0;
 	e->s != 0 ? e->s = 0 : 0;
+	e->print = 1;
 	if (e->c != 'l')
 	{
 		c = va_arg(e->a, int);
 		c == 0 && e->pr < 0 ? e->r++ : 0;
-		e->print = 1;
 		if (e->m == 0)
 		{
 			if (e->w != 0 || c != 0)
@@ -170,7 +170,7 @@ void	ft_is_c(int *i, t_en *e)
 					}
 				}
 			}
-			e->pr >= 0 ? e->r += ft_putchar(c) : 0;
+			e->pr >= 0 ? e->r += ft_putchar(c) : ft_putchar(c);
 		}
 		else
 		{
@@ -179,7 +179,7 @@ void	ft_is_c(int *i, t_en *e)
 			{
 				if (e->w > e->pr)
 				{
-					e->w--;
+					//e->w--;
 					while ((e->w > e->pr) && (e->w > e->print))
 					{
 						if (e->z > 0)

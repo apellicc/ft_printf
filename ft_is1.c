@@ -13,7 +13,8 @@ void	ft_is_d(int *i, t_en *e)
 	e->c == 'j' ? nb = (intmax_t)va_arg(e->a, intmax_t) : 0;
 	e->c == 'z' ? nb = (size_t)va_arg(e->a, size_t) : 0;
 	e->print = ft_intlen(nb);
-	e->pr >= 0 ? e->r += e->print : 0;
+	//nb ==  0 ? (e->r += 1) : 0;
+	e->pr >= 0 || e->print > 1 || e->w != 0 ? e->r += e->print : 0;
 	e->p != 0 && nb < 0 ? e->p = 0 : 0;
 	e->s != 0 && (nb < 0 || e->p != 0) ? e->s = 0 : 0;
 	tmp = nb;
@@ -24,7 +25,7 @@ void	ft_is_d(int *i, t_en *e)
 	{
 		//ft_nbrendl(e->w);
 		e->pr >= 0 && e->p != 0 && (e->w - e->pr <= 0 ||
-			e->w - e->print <= 0 || e->z != 0) ? e->r += ft_putchar('+') : 0;
+		e->w - e->print <= 0 || e->z != 0) ? e->r += ft_putchar('+') : 0;
 		if (nb < 0 && ((e->w <= e->pr) || e->z != 0))
 		{
 			e->pr >= 0 ? ft_putchar('-') : 0;
@@ -68,7 +69,8 @@ void	ft_is_d(int *i, t_en *e)
 				e->pr--;
 			}
 		}
-		 e->pr >= 0 ? ft_putunsignedlongnbr(nb) : 0;
+		 e->pr >= 0 || nb != 0 ? ft_putunsignedlongnbr(nb) : 0;
+		 nb == 0 && e->w > 0 && e->z == 0? ft_putchar(' ') : 0;
 	}
 	else
 	{

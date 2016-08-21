@@ -59,6 +59,7 @@ void	ft_check_precision(char *f, int *i, t_en *e)
 	e->pr >= 0 ? *i += ft_intlen(e->pr) : 0;
 	e->pr == -1 ? *i += 1 : 0;
 	e->pr == -2 ? *i += 2 : 0;
+//e->pr == -1 || e->pr == -2 ? e->pr = 0 : 0;
 	//ft_nbrendl(*i);
 	//ft_putendl(&f[*i]);
 	//ft_putendl("dans fin check pr");
