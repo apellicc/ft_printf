@@ -13,6 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define ULL	unsigned long long
+
 # include <stdarg.h>
 # include <stdlib.h>
 # include "libft/libft.h"
@@ -34,19 +36,16 @@ typedef struct		s_en
 }					t_en;
 
 void				ft_print_flag(t_en *e);
-char				*ft_convert(long long int n, int base, char *str, int i);
-char				*ft_itoa_base(long long int n, int base);
-char				*ft_uitoa_base(unsigned long long int n, int base);
 void				ft_is_d(int *i, t_en *e);
 void				ft_is_u(int *i, t_en *e);
 void				ft_is_o(int *i, t_en *e);
 void				ft_is_p(int *i, t_en *e);
 void				ft_is_x(int *i, t_en *e);
-void				ft_is_x2(int *i, t_en *e);
+void				ft_is_gx(int *i, t_en *e);
 void				ft_is_s(int *i, t_en *e);
-void				ft_is_s2(int *i, t_en *e);
+void				ft_is_ws(int *i, t_en *e);
 void				ft_is_c(int *i, t_en *e);
-void				ft_is_c2(int *i, t_en *e);
+void				ft_is_wc(int *i, t_en *e);
 void				ft_is_percent(int *i, t_en *e);
 void				ft_check_flag(char *f, int *i, t_en *e);
 void				ft_check_width(char *f, int *i, t_en *e);
@@ -63,7 +62,6 @@ int					ft_putstr_minimizer(char *str);
 void				ft_print_w(t_en *e, long long int n);
 void				ft_nprint_w(t_en *e);
 void				ft_is_invalid(char *f, int *i, t_en *e);
-int					ft_putwchar(wchar_t value);
 int					ft_putswchar(wchar_t *value);
 int					ft_wcharlen(wchar_t value);
 int					ft_swcharlen(wchar_t *value);

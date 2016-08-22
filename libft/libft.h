@@ -14,6 +14,9 @@
 # define LIBFT_H
 
 # define BUFF_SIZE 64
+# define MASK1  0xC080
+# define MASK2  0xE08080
+# define MASK3  0xF0808080
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -107,5 +110,12 @@ void				*ft_memnew(size_t size);
 void				ft_putlongnbr(long long int c);
 void				ft_putunsignedlongnbr(unsigned long long c);
 int					ft_uintlen(unsigned long long int n);
+int					ft_putwchar(wchar_t value);
+int					ft_putswchar(wchar_t *value);
+char				*ft_itoa_base(long long int n, int base);
+char				*ft_convert(long long int n, int base, char *str, int i);
+char				*ft_uitoa_base(unsigned long long nb, int base);
+int					ft_wcharlen(wchar_t value);
+int					ft_swcharlen(wchar_t *value);
 
 #endif

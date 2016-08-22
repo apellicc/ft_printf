@@ -38,11 +38,11 @@ void	ft_select_print(char *f, int *i, t_en *e)
 	e->f == 'o' ? ft_is_o(i, e) : 0;
 	e->f == 'p' ? ft_is_p(i, e) : 0;
 	e->f == 'x' ? ft_is_x(i, e) : 0;
-	e->f == 'X' ? ft_is_x2(i, e) : 0;
+	e->f == 'X' ? ft_is_gx(i, e) : 0;
 	e->f == 's' ? ft_is_s(i, e) : 0;
 	e->f == 'c' ? ft_is_c(i, e) : 0;
-	e->f == 'C' ? ft_is_c2(i, e) : 0;
-	e->f == 'S' ? ft_is_s2(i, e) : 0;
+	e->f == 'C' ? ft_is_wc(i, e) : 0;
+	e->f == 'S' ? ft_is_ws(i, e) : 0;
 	e->f == '%' ? ft_is_percent(i, e) : 0;
 }
 

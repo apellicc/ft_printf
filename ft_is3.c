@@ -110,7 +110,7 @@ void	ft_is_s(int *i, t_en *e)
 		*i = *i + 1;
 		ft_ini(e);
 	}
-	e->c == 'l' ? ft_is_s2(i, e) : 0;
+	e->c == 'l' ? ft_is_ws(i, e) : 0;
 }
 
 void	ft_is_c(int *i, t_en *e)
@@ -165,7 +165,7 @@ void	ft_is_c(int *i, t_en *e)
 		}
 		*i = *i + 1;
 	}
-	e->c == 'l' ? ft_is_c2(i, e) : 0;
+	e->c == 'l' ? ft_is_wc(i, e) : 0;
 }
 
 void	ft_is_percent(int *i, t_en *e)
