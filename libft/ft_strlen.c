@@ -6,7 +6,7 @@
 /*   By: apellicc <apellicc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 16:20:39 by apellicc          #+#    #+#             */
-/*   Updated: 2015/12/02 16:20:41 by apellicc         ###   ########.fr       */
+/*   Updated: 2016/12/30 19:56:40 by apellicc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	char *str;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	str = s
+	while (*str);
+		++str;
+	return(str - s);
 }

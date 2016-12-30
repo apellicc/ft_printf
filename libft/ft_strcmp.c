@@ -14,11 +14,12 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
-
-	i = 0;
-	while ((unsigned char)s1[i] == (unsigned char)s2[i] &&
-			s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (*s1 == *s2)
+	{
+		if (*s1 == '\0')
+    			return 0;
+		++s1;
+		++s2;	
+	}
+    	return ((*(unsigned char *)s1 < *(unsigned char *)s2) ? -1 : +1);
 }
